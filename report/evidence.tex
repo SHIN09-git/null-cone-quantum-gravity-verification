@@ -1,0 +1,69 @@
+\newpage
+\topic{Two counterexamples and their scope}
+\subtopic{1. The uncentered positive source in the same vacuum}
+\textbf{Claim tested.} The positive forms of $Q_N$ from (4.32) have a finite pointwise limit on some dense domain in the product Gaussian representation.
+
+\textbf{Counterexample.} Use exactly $v_k=x/(2k)$ at any fixed $x>0$ and let $\mu$ be the product measure. Integrating a Gaussian against $e^{-q_k^2/x}$ gives $(1+2v_k/x)^{-1/2}$. Independence now makes the many-mode transform telescope,
+\[
+ \E_\mu e^{-Q_N/x}=\prod_{k=1}^N \sqrt{k/(k+1)}=(N+1)^{-1/2}.
+\]
+The random variables $Q_N$ increase to an extended nonnegative $Q_\infty$. By dominated convergence $\E e^{-Q_\infty/x}=0$. The integrand is nonnegative, so $Q_\infty=\infty$ almost surely. For each nonzero $f\in L^2(\mu)$ the set $|f|>0$ has positive measure. Monotone convergence gives $\lim_N\int Q_N|f|^2\,d\mu=\infty$. Hence the finite-form domain is exactly $\{0\}$.
+
+\textbf{Scope.} The connected prescription has an $L^2$ limit because the variance of $B_M-B_N$ is $2\sum_{N<k\le M}v_k^2\to0$. Its real limit $B$ defines a multiplication operator on $\{f:Bf\in L^2(\mu)\}$, which contains the vacuum $f=1$. This construction explains how (4.33) survives the failure of the indicated raw positive limit.
+
+\subtopic{2. Joint absolute summability with two cuts}
+\textbf{Claim tested.} Finite-norm external states and unitary evolution suffice for absolute summability of all paths after expanding two intermediate cuts in orthonormal bases.
+
+\textbf{Counterexample.} Take $H=\bigoplus_{j\ge1}\mathbb C^{d_j}$, $d_j=4^j$, with standard coordinate bases and normalized constant block vectors $u_j$. Set $\psi=\phi=\sum_{j\ge1}2^{-j/2}u_j$, so both norms are one. Use the three maps $I,W,I$. On block $j$, $W_{ab}=(-1)^{a\cdot b}/\sqrt{d_j}$ for binary strings of length $2j$. Orthogonality follows by pairing opposite signs in the sum over strings whenever two rows differ. Thus the direct sum $W$ is unitary.
+
+Every within-block path has modulus $2^{-j}/d_j^{3/2}$. There are $d_j^2$ such paths. Their absolute mass is $2^{-j}\sqrt{d_j}=1$ in each block, so total absolute mass diverges. On the other hand $Wu_j$ is the first coordinate vector. Its overlap with $u_j$ is $1/\sqrt{d_j}$. The actual matrix element is $\sum_{j\ge1}2^{-j}/\sqrt{d_j}=\sum_{j\ge1}4^{-j}=1/3$.
+
+\textbf{Scope.} This Hilbert-space example satisfies both the one-cut theorem and the finite-cut projection estimate. It disproves the stated universal extension to unrestricted rearrangements of individual paths. Neither example decides ultraviolet completeness in four-dimensional gravity.
+
+\newpage
+\topic{Numerical checks and a simultaneous limit}
+\textbf{Numerical support.} The release contains 11 unit tests and 127 numerical records. Every tested input and the printed complex outputs are in \texttt{baseline/numerical.jsonl}. The hard-cutoff evaluations use a direct complex sum. The reference evaluations use the dilogarithm, the real log-sine integral on p.~5 and, at five inputs, a direct prefix plus the Laplace tail on p.~4. The last two methods do not call the dilogarithm. They share the mpmath arithmetic library.
+
+\begin{center}
+\begin{tabular}{@{}r@{\qquad}r@{\qquad}r@{}}
+$s$ & $\Re C(1/s)$ & $\Im C(1/s)$\\ \hline
+1   & $-0.2483292933707834$ & $-0.3635730254316396$\\
+10  & $\phantom{-}0.006703874007446236$ & $-0.002609993579151187$\\
+100 & $\phantom{-}0.00008068090701561643$ & $-0.000004912028560994813$
+\end{tabular}
+\end{center}
+At $s=10$, $N=2048$, the observed absolute error is $5.96735\,10^{-9}$ and the analytical upper bound is $1.19292\,10^{-8}$ (rounded displays). At 125 decimal digits, the largest observed discrepancy divided by $x^2$ was $1.245\,10^{-120}$ or less for nine log-sine comparisons and $3.613\,10^{-124}$ or less for the five Laplace comparisons. These discrepancies measure agreement between calculations. They are not rigorous roundoff enclosures.
+
+The nine inputs include $x=10^{-18}$, $\pi/2$, $\pi$, $\pi\pm10^{-25}$ and $10^6+1/7$. Symbolic Gaussian integration and a separate number-basis multiplication check the sign and both factors of $\sqrt{2}$. A standard-library script also checks $2C(\pi/4)/(\pi/4)^2=-\pi^2/48-i\,\mathrm{Catalan}$ by grouping phases modulo four and evaluating the alternating odd reciprocal-square sum. It enumerates the first four Walsh blocks and checks the Gaussian product using exact rational arithmetic.
+
+\subtopic{When the cutoff probes the oscillation scale}
+\textbf{Proved.} Write $x=\lambda/N$, $\lambda>0$. Removing the quadratic and finite-cutoff cubic terms leaves
+\[
+ \frac{C_N-x^2H_N^{(2)}/2}{x^3}+iH_N
+   =x\sum_{k=1}^N h(kx),\qquad
+ h(u)=\frac{e^{-2iu}-1+2iu}{2u^2}
+     =-2\int_0^1(1-t)e^{-2iut}\,dt .
+\]
+The integral form is Taylor's formula with integral remainder. It gives $h(0)=-1$ and $|h'|\le4\int_0^1t(1-t)dt=2/3$. On each interval of length $x$, the right-endpoint quadrature error is bounded by $x^2/3$. Summing gives $\lambda^2/(3N)$ for the difference from $\int_0^\lambda h(u)\,du$.
+
+\textbf{Numerical support.} A separately coded rational Taylor integral checks $\lambda=1/4,1,8$ at $N=64,256,1024,4096$. At $\lambda=1$, $N=4096$ the observed error is $7.55088\,10^{-5}$, below $8.13802\,10^{-5}$. The scale $kx=O(1)$ explains why expanding every mode at fixed cutoff can miss a term in the summed amplitude.
+
+\newpage
+\topic{Physical interpretation and provenance}
+\textbf{Conditional.} The paper uses causal factorization and unitary evolution for the admitted deformations to identify the glued amplitude. It allows positive Gaussian widths in its representation and selects the explicit widths and phases in (4.32). Appendix D.3 motivates a short-wavelength scaling with fixed endpoint data. Scaling alone does not fix the coefficient at every $k$. \textbf{Open interpretation.} Calling the prescribed number rotation an actual translation on a finite null boundary would require a geometric map preserving its endpoint data. Equation (4.33) needs only the prescribed rotation.
+
+\textbf{Unverified.} Appendix C.2 gives sufficient conditions for bounded self-adjoint, strongly continuous operator families with integrable operator norm. The restricted calculation supplies no continuum self-adjointness or common-domain construction for every unbounded gravitational source. The cut proof has no logical cycle as a Hilbert-space implication. Using that estimate by itself to justify the existence or unitarity of the same physical evolution would assume a premise in the conclusion.
+
+The example sums radial frequencies without bound for one prepared, centered observable. A claim of ultraviolet completeness would need control of a specified class of physical observables, their domains, removal of regulators and consistent dynamics at arbitrarily short distances. These additional propositions are \textbf{unverified} here. The calculation gives no verdict on the full theory.
+
+\subtopic{Contributions and review}
+The project lead defined the question and scope and authorized publication. OpenAI Codex performed the primary analytic derivations, designed and ran the symbolic and numerical checks, and prepared this report and software. During the research stage a second AI context inspected the primary manuscript and recorded its reasoning before reading the first analysis. It tested the raw source and the two-cut extension and wrote the separate standard-library checks. Shared mathematical assumptions and potential model errors remain possible. The evidence for each theorem is its displayed proof.
+
+As of 26 November 2026, this verification has not been reviewed by an external specialist. The project record contains no attestation of a human line-by-line mathematical audit. Venkatesa Chandrasekaran authored the manuscript under study. Project title and version identify this independent work.
+
+\subtopic{Primary sources and version}
+V. Chandrasekaran, \textit{An algebraic quantization of gravity from the null cone}, arXiv:2611.34924v1, 25 November 2026. The five numbered equations appear on printed pp.~32--34. Context for gluing and source selection is linked above. \href{https://arxiv.org/abs/2611.34924v1}{Version record} $\cdot$ \paper{S4.SS4}{Section 4.4} $\cdot$ \paper{A3.SS2}{Appendix C.2} $\cdot$ \paper{A4.SS3}{Appendix D.3}.
+
+NIST Digital Library of Mathematical Functions, \href{https://dlmf.nist.gov/25.12.E1}{Eq.~25.12.1} (dilogarithm series) and \href{https://dlmf.nist.gov/4.22.E1}{Eq.~4.22.1} (sine product). These identities fix the boundary value and the convergent kernel expansion used on pp.~3--5.
+
+\texttt{reference/paper.json} records both arXiv files' lengths and SHA-256 digests. \texttt{SHA256SUMS} covers the report source, PDF, code and reference results.

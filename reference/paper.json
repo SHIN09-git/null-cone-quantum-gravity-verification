@@ -1,0 +1,15 @@
+{
+  "paper": "An algebraic quantization of gravity from the null cone",
+  "author": "Venkatesa Chandrasekaran",
+  "id": "2611.34924v1",
+  "submitted_utc": "2026-11-25T18:58:55Z",
+  "fingerprinted_on": "2026-11-26",
+  "record": "https://arxiv.org/abs/2611.34924v1",
+  "section": "https://arxiv.org/html/2611.34924v1#S4.SS4",
+  "arxiv_submission_license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+  "printed_pages": {"4.29": 32, "4.30": 32, "4.31": 33, "4.32": 33, "4.33": 34},
+  "files": [
+    {"url": "https://arxiv.org/pdf/2611.34924v1", "bytes": 1979526, "sha256": "d17caccbee57cfbee6fc2eeed2e5a53467c9401be979fd2952aa2bf92d5443af"},
+    {"url": "https://arxiv.org/src/2611.34924v1", "bytes": 904770, "sha256": "1251f05ae2fac0bc307286550e115f3a9ef9228187822b9f40aad9c33b3407be"}
+  ]
+}

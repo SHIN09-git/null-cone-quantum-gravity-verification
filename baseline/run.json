@@ -1,0 +1,61 @@
+{
+  "python": "3.12.10",
+  "packages": {
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0"
+  },
+  "steps": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-u",
+        "calculations/symbolic.py"
+      ],
+      "exit_code": 0,
+      "sha256": {
+        "symbolic.txt": "5b6dbbafd1875e8b39f7109edd89849e332065e998b65007def6219545ebbcd1",
+        "symbolic.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-u",
+        "calculations/numerical.py"
+      ],
+      "exit_code": 0,
+      "sha256": {
+        "numerical.jsonl": "9ca3bfecb0b463714b1c85536b173773464af713b75906a3a26df29d135d9e4e",
+        "numerical.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-u",
+        "tools/run_tests.py"
+      ],
+      "exit_code": 0,
+      "sha256": {
+        "tests.txt": "06efc2e6a2e35dad7692f29bdca333ae447f85584a0dc78ec5d32aa558e9380c",
+        "tests.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-u",
+        "tests/independent_checks.py"
+      ],
+      "exit_code": 0,
+      "sha256": {
+        "independent.txt": "a5f853923cae3328679af81f320bae573b11b4ae1b3fbab8d7e4711b83bb3180",
+        "independent.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ]
+}

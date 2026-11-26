@@ -1,0 +1,63 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,left=25mm,right=24mm,top=23mm,bottom=23mm,headheight=14pt,headsep=7mm,footskip=12mm]{geometry}
+\usepackage{amsmath,amssymb,xcolor}
+\usepackage[unicode,colorlinks=true,linkcolor=ink,urlcolor=ink]{hyperref}
+\definecolor{ink}{rgb}{0.08,0.25,0.34}
+\hypersetup{pdftitle={An Independent Verification of Null-Cone Quantum Gravity: Transition Amplitudes and Convergence},pdfauthor={Null-cone amplitude verification project},pdfsubject={A Reproducibility Study of Section 4.4 of arXiv:2611.34924v1}}
+\ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\ifdefined\pdfsuppressptexinfo\pdfsuppressptexinfo=15\fi
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 0.4pt minus 0.4pt}
+\setlength{\emergencystretch}{2em}
+\raggedbottom
+\makeatletter
+\def\ps@audit{\def\@oddhead{\small\sffamily\color{ink}Null-cone amplitude verification\hfil Section 4.4}
+\def\@oddfoot{\small\sffamily v0.1.0\hfil\thepage}\let\@evenhead\@oddhead\let\@evenfoot\@oddfoot}
+\makeatother
+\pagestyle{audit}
+\newcommand{\topic}[1]{\section*{\color{ink}#1}}
+\newcommand{\subtopic}[1]{\par\medskip{\large\bfseries #1}\par\nobreak}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\Li}{\operatorname{Li}_2}
+\newcommand{\E}{\mathbb E}
+\newcommand{\paper}[2]{\href{https://arxiv.org/html/2611.34924v1\##1}{#2}}
+\begin{document}
+
+{\sffamily\small TECHNICAL REPORT\hfill 26 November 2026}\par
+\vspace{4mm}
+{\huge\bfseries\raggedright An Independent Verification of\\
+Null-Cone Quantum Gravity:\\
+Transition Amplitudes and Convergence\par}
+\vspace{2mm}
+{\large\itshape A Reproducibility Study of Section 4.4 of arXiv:2611.34924v1\par}
+\vspace{4mm}
+
+This study examines Eqs.~(4.29)--(4.33) of Venkatesa Chandrasekaran's v1 manuscript. For a single angular harmonic and polarization, the Gaussian state and mode rotation chosen in the paper give the connected pair amplitude
+\[
+ C(x)=\frac{x^2}{2}\Li(e^{-2ix}),\qquad
+ x=\frac{1}{s}=\frac{4G_N\hbar}{\mathcal A}>0 .
+\]
+Here $\mathcal A$ is the fixed corner area. The sum over all radial frequencies converges absolutely for every fixed $x$. Its weak-coupling expansion contains $ix^3\log x$. Finiteness at positive coupling and the singular cubic coefficient follow from the same scalar function.
+
+\textbf{Contributions and review.} OpenAI Codex performed the derivations and computations and drafted this report. This release has not been reviewed by an external specialist.
+
+\subtopic{Claims and their dependencies}
+\begin{tabular}{@{}p{0.20\linewidth}@{\hspace{0.035\linewidth}}p{0.72\linewidth}@{}}
+\textbf{Paper equation} & \textbf{Result and hypotheses}\\[4pt]
+(4.29), (4.30) & A complete orthonormal basis resolves one cut. Finite vector norms give absolute summability. Norm-preserving evolution gives the stated boundary-state bound.\\[4pt]
+(4.31) & Contractive propagation and strong convergence of the cut projections control the error for any fixed finite number of cuts.\\[4pt]
+(4.32) & The Gaussian widths, quadratic source and phase specify the preparation. The oscillator realization below implements those choices.\\[4pt]
+(4.33) & Centering the source, orthogonality of pair states and the prescribed phase give the displayed sum. Absolute summability controls cutoff removal.
+\end{tabular}
+
+\subtopic{How to read the evidence}
+\textbf{Proved} identifies an analytic implication with its hypotheses stated. \textbf{Conditional} marks a physical identification or preparation that supplies those hypotheses. \textbf{Numerical support} denotes finite calculations at specified precision. \textbf{Counterexample} identifies a universally phrased extension and a model that falsifies it. \textbf{Open interpretation} flags a specific unresolved identification. \textbf{Unverified} marks a question for which this audit supplies no proof.
+
+Pages 2--5 give the derivations and bounds. Page 6 proves two counterexamples. Page 7 gives numerical evidence and page 8 records interpretive limits, provenance and review status. Source pagination refers to the \href{https://arxiv.org/pdf/2611.34924v1}{v1 PDF}, pp.~32--34.
+
+\input{mathematics.tex}
+\input{evidence.tex}
+\end{document}

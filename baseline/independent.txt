@@ -1,0 +1,30 @@
+Python 3.12.10, standard library only
+Gaussian Laplace moment squared, N=1: 1/2
+Gaussian Laplace moment squared, N=8: 1/9
+Gaussian Laplace moment squared, N=32: 1/33
+Gaussian Laplace moment squared, N=256: 1/257
+Gaussian Laplace moment squared, N=4096: 1/4097
+Walsh blocks 1..1: signed=1/4 absolute=1
+Walsh blocks 1..2: signed=5/16 absolute=2
+Walsh blocks 1..3: signed=21/64 absolute=3
+Walsh blocks 1..4: signed=85/256 absolute=4
+x=pi/4, N=64: normalized error=0.000169896011 bound=0.000334725104
+x=pi/4, N=256: normalized error=1.07472837e-05 bound=2.14115817e-05
+x=pi/4, N=1024: normalized error=6.7369039e-07 bound=1.34606883e-06
+x=pi/4, N=4096: normalized error=4.21365562e-08 bound=8.42525531e-08
+lambda=1/4: integral=-0.248272541824+0.0207036403566j Taylor tail <= 1.44e-225
+  N=64: error=0.000323993436 Riemann bound=0.000325520833
+  N=256: error=8.09993317e-05 Riemann bound=8.13802083e-05
+  N=1024: error=2.02498945e-05 Riemann bound=2.03450521e-05
+  N=4096: error=5.06247747e-06 Riemann bound=5.08626302e-06
+lambda=1: integral=-0.897339558529+0.302030730099j Taylor tail <= 6.23e-157
+  N=64: error=0.004831342 Riemann bound=0.00520833333
+  N=256: error=0.0012080669 Riemann bound=0.00130208333
+  N=1024: error=0.000302031361 Riemann bound=0.000325520833
+  N=4096: error=7.55087577e-05 Riemann bound=8.13802083e-05
+lambda=8: integral=-1.50894855075+2.34601061997j Taylor tail <= 5.58e-54
+  N=64: error=0.0619611535 Riemann bound=0.333333333
+  N=256: error=0.0155077634 Riemann bound=0.0833333333
+  N=1024: error=0.003878099 Riemann bound=0.0208333333
+  N=4096: error=0.000969598168 Riemann bound=0.00520833333
+PASS

@@ -1,0 +1,107 @@
+\newpage
+\topic{One cut and finitely many cuts}
+\textbf{Proved.} Let $U_1:H_0\to H_\Sigma$ and $U_2:H_\Sigma\to H_f$ be bounded maps. Fix finite-norm vectors $\psi,\phi$ at the two ends. Set $a=U_1\psi$, $b=U_2^*\phi$, with inner products linear in the second argument. For a finite subset $F$ of a complete orthonormal basis on $H_\Sigma$, let $P_F$ be the orthogonal projection onto its span. Write $a_\alpha=\langle e_\alpha,a\rangle$ and likewise for $b$. Orthogonality gives
+\[
+ \langle b,P_Fa\rangle=\sum_{\alpha\in F}\overline{b_\alpha}a_\alpha,\qquad
+ |\langle b,(I-P_F)a\rangle|
+ \le \norm{(I-P_F)b}\,\norm{(I-P_F)a}.
+\]
+Completeness implies $P_Fa\to a$ and $P_Fb\to b$ in norm as $F$ increases. This proves the matrix identity in \paper{S4.E29}{(4.29)}. Applying Cauchy--Schwarz to the absolute values before taking the supremum over $F$ gives
+\[
+ \sum_\alpha |\overline{b_\alpha}a_\alpha|\le \norm b\,\norm a.
+\]
+For unitary $U_1,U_2$, the right side is $\norm\phi\,\norm\psi$, as in \paper{S4.E30}{(4.30)}. Contractions suffice for the inequality with these external norms.
+
+\subtopic{The error with independent cutoffs}
+Let $m$ be the fixed number of propagation segments. There are $m-1$ intermediate cuts. Suppose each $U_j:H_{j-1}\to H_j$ is a contraction. Define $a_0=b_0=\psi$, $a_j=U_j a_{j-1}$, and $b_j=P_j U_j b_{j-1}$ for $j<m$. On the final segment set $b_m=U_mb_{m-1}$. Subtract the recursions to get
+\[
+ a_j-b_j=(I-P_j)a_j+P_jU_j(a_{j-1}-b_{j-1}),\qquad j<m.
+\]
+Taking norms and iterating gives the estimate in \paper{S4.E31}{(4.31)},
+\[
+ |\langle\phi,a_m-b_m\rangle|
+ \le \norm\phi\sum_{j=1}^{m-1}\norm{(I-P_j)U_j\cdots U_1\psi}.
+\]
+Each term on the right tests the projection on one \emph{fixed}, fully propagated vector. If each family of projections tends strongly to the identity, all finitely many terms tend to zero independently. This proves convergence with one cutoff per cut. It supplies no common bound as $m\to\infty$. The distinction from joint absolute summability at fixed $m$ already matters for two cuts (p.~6).
+
+\textbf{Conditional.} Interpreting the product as the amplitude of a glued spacetime requires matching boundary data with opposite orientations, cancellation of the corresponding action terms, and the composition law for the admitted evolutions. The Hilbert-space argument starts once those maps are defined. The paper states these inputs immediately before (4.29).
+
+\newpage
+\topic{The Gaussian preparation and the pair}
+\textbf{Conditional preparation.} Fix one real angular harmonic and one polarization. In the chosen product vacuum, the dimensionless radial coordinates are independent, $q_k\sim N(0,v_k)$, with zero mean momentum. A real wavefunction proportional to $\exp(-skq^2/2)$ has density proportional to $\exp(-skq^2)$, hence $v_k=(2sk)^{-1}=x/(2k)$. Take $Q_N=\sum_{k=1}^N q_k^2$. In the occupation basis set the vacuum phase to one and prescribe phase $e^{-ikx}$ per quantum. Additivity of the phase in occupation number then gives
+\[
+ U_N\ket{\boldsymbol n}
+ =\exp\!\left[-ix\sum_{k\le N}kn_k\right]\ket{\boldsymbol n}.
+\]
+These three choices realize \paper{S4.E32}{(4.32)}. Each $U_N$ is unitary.
+
+\subtopic{Independent coordinate derivation of (4.33)}
+With $q=\sqrt{v_k}(a+a^\dagger)$ the normalized second oscillator wavefunction divided by its ground-state wavefunction is
+$h_2(q)=(q^2/v_k-1)/\sqrt{2}$. Indeed the Gaussian moments
+$\E q^2=v_k$, $\E q^4=3v_k^2$ give $\E h_2=0$, $\E h_2^2=1$. This is the even degree-two polynomial orthogonal to the vacuum. Consequently
+\[
+ (q_k^2-v_k)\ket0=\sqrt{2}\,v_k\ket{2_k},\qquad
+ \bra0 U_N^*q_k^2U_N\ket{2_k}=\sqrt{2}\,v_k e^{-2ikx}.
+\]
+These are the creation and rotated annihilation matrix elements. For $B_N=Q_N-\sum_{k\le N}v_k$, set $b_N=B_N\ket0$. The vacuum is invariant. Subtracting the product of the two vacuum expectations makes the connected correlator $\langle b_N,U_N b_N\rangle$. Distinct $\ket{2_k}$ are orthogonal, so
+\[
+ C_N(x)=\sum_{k=1}^N 2v_k^2e^{-2ikx}
+       =\frac{x^2}{2}\sum_{k=1}^N\frac{e^{-2ikx}}{k^2}.
+\]
+\textbf{Proved for this preparation.} $\norm{b_M-b_N}^2=2\sum_{N<k\le M}v_k^2\to0$. Thus $b_N\to b$ and $\norm b^2=\pi^2x^2/12$. Summing the absolutely convergent scalar series gives \paper{S4.E33}{(4.33)} with the closed-unit-disk definition of $\Li$.
+
+\subtopic{Which unbounded operator is needed?}
+In the vacuum sector the finite-occupation basis spans densely. Let $K$ act diagonally by $E_{\boldsymbol n}=\sum k n_k$ on the domain $\sum E_{\boldsymbol n}^2 |c_{\boldsymbol n}|^2<\infty$. This real diagonal operator is self-adjoint because testing its adjoint on each basis vector gives the same weighted square-summability condition. $U=e^{-ixK}$ is unitary everywhere. $U_N\to U$ strongly by eventual equality on each finite-occupation vector and uniform boundedness. The scalar limit is $\langle b,Ub\rangle$. Yet $\sum_k(2k)\,2v_k^2=x^2\sum_k1/k=\infty$, so $b\notin D(K^{1/2})$. Inserting the generator as a quadratic form on this vector requires a domain condition that fails.
+
+\newpage
+\topic{Absolute convergence and error bounds}
+\textbf{Proved.} The absolute sum is $x^2\zeta(2)/2=\pi^2x^2/12$, including at $x=n\pi$. For a hard cutoff, integral comparison gives $\sum_{k>N}k^{-2}\le1/N$. If $\sin x\ne0$, the geometric sum of $z^k$, $z=e^{-2ix}$, on any consecutive interval has modulus at most $2/|1-z|=1/|\sin x|$. For $M=N+1$, partial summation against $k^{-2}$ bounds the infinite tail by
+$(1/|\sin x|)\sum_{k=M}^\infty(k^{-2}-(k+1)^{-2})$. Thus
+\[
+ |C-C_N|\le\frac{x^2}{2}\min\!\left\{\frac1N,\frac{1}{|\sin x|(N+1)^2}\right\}.
+\]
+At exact resonance use the first bound. All terms there are positive and integral comparison from below gives $x^2/[2(N+1)]\le C-C_N\le x^2/(2N)$. Convergence is uniform on $0\le x\le X<\infty$ with the continuous value $C(0)=0$. It fails to be uniform on all $x>0$ by the unbounded sequence of exact resonances.
+
+\subtopic{Hard, Abel and triangular cutoffs}
+Let $H_N=\sum_{k\le N}1/k$. Any uniformly bounded weights tending to one mode by mode preserve the limit by domination by a constant times $k^{-2}$. For Abel weights $e^{-k/N}$, split at $N$ and use $1-e^{-k/N}\le k/N$ below the split. For triangular weights $(1-k/(N+1))_+$, the change below $N$ is exactly linear in $k$. The respective amplitude errors satisfy
+\[
+ |C-C_{\rm Abel}|\le\frac{x^2}{2N}(H_N+1),\qquad
+ |C-C_{\rm tri}|\le\frac{x^2}{2}\left(\frac{H_N}{N+1}+\frac1N\right).
+\]
+The cubic coefficients divided by $-i$ before cutoff removal are $H_N$, $-\log(1-e^{-1/N})$ and $H_N-N/(N+1)$ for hard, Abel and triangular weights. This follows by weighting $1/k$ and summing, using $\sum r^k/k=-\log(1-r)$. After subtracting $\log N$ the constants tend to $\gamma,0,\gamma-1$, respectively. The common amplitude and the cutoff-dependent perturbative coefficients answer different questions.
+
+\subtopic{A second expression for the exact hard-cutoff error}
+Write $1/k^2=\int_0^\infty u e^{-ku}\,du$. Absolute integrability after summing follows from $\sum_{k>N}1/k^2<\infty$. Summing the geometric series inside the integral and setting $y=Mu$, $M=N+1$, gives
+\[
+ C-C_N=\frac{x^2z^M}{2M^2}\int_0^\infty
+              \frac{y e^{-y}}{1-z e^{-y/M}}\,dy .
+\]
+The integrand tends to $M$ at the lower endpoint when $z=1$ and to $0$ otherwise. This formula permits a numerical check using only a finite sum and quadrature.
+
+\newpage
+\topic{What fails in the weak-coupling expansion?}
+Keep $\mathcal A,\hbar>0$ fixed and vary $x=4\hbar G_N/\mathcal A$. For each finite $N$, Taylor expansion gives $C_N=x^2 H_N^{(2)}/2-ix^3H_N+O_N(x^4)$, where $H_N^{(2)}=\sum_{k\le N}k^{-2}$. The cubic coefficient has no finite limit. To expand the summed function, put $F(t)=\sum_{k\ge1}e^{-ikt}/k^2$. With Abel factor $r^k$, $0<r<1$, differentiating gives $F_r'(t)=i\log(1-r e^{-it})$. As $r\uparrow1$ the derivative converges uniformly on compact subintervals of $(0,2\pi)$ and the functions converge uniformly on the whole circle. The principal argument of $1-e^{-it}$ is $(\pi-t)/2$ there. Integration from a positive lower endpoint, then to zero using the integrable $\log t$ singularity, yields
+\[
+ F(t)=\frac{\pi^2}{6}-\frac{\pi t}{2}+\frac{t^2}{4}
+      +i\int_0^t\log(2\sin(u/2))\,du .
+\]
+For $0<x<\pi$ take $t=2x$. The Euler product for the sine yields the uniformly convergent series on $0\le y\le x$,
+\[
+ \log(\sin y/y)=-\sum_{j\ge1}\zeta(2j)(y/\pi)^{2j}/j .
+\]
+Integrating term by term gives
+\begin{align*}
+ \Re C(x)&=\pi^2x^2/12-\pi x^3/2+x^4/2,\\
+ \Im C(x)&=x^3\left[\log(2x)-1-\sum_{j\ge1}
+       \frac{\zeta(2j)(x/\pi)^{2j}}{j(2j+1)}\right].
+\end{align*}
+For $J\ge0$, bound the positive tail by replacing $\zeta(2j)$ by $\zeta(2)$, $j(2j+1)$ by its first remaining value, and summing the geometric powers. The absolute error in $\Im C$ is at most
+\[
+ \frac{x^3\zeta(2)(x/\pi)^{2J+2}}
+ {(J+1)(2J+3)(1-(x/\pi)^2)}.
+\]
+The first two corrections to $x^3[\log(2x)-1]$ are $-x^5/18-x^7/900$. The regular power series can be differentiated inside its radius of convergence. Thus $C'''(x)=-3\pi+i[6\log(2x)+5]+O(x)$ at $0^+$. The third derivative in $G_N$ has the extra factor $(4\hbar/\mathcal A)^3$.
+
+\subtopic{Values versus coefficients}
+\textbf{Proved.} The bound $|C_N|\le\pi^2 x^2/12$ gives zero in both orders for the value as $N\to\infty$, $x\downarrow0$. Define
+$T_N=[\Re C_N-x^2 H_N^{(2)}/2]/x^3$. At fixed $N$, the finite cosine sum gives $T_N\to0$. At fixed $x>0$, $T_N\to-\pi/2+x/2$ for $x<\pi$. The two orders for this cubic coefficient therefore give $0$ and $-\pi/2$. The divergent imaginary coefficient and the order-dependent real coefficient locate the failure precisely. This differentiates a family of prepared \emph{scalar} amplitudes. Comparing states or unbounded operators across couplings needs an identification of their representations.

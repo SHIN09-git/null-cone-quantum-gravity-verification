@@ -1,0 +1,2 @@
+# Keep the recorded bytes intact on checkout, including the research input files.
+* -text
