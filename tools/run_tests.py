@@ -1,4 +1,5 @@
 """Write stable per-test outcomes and standard unittest failure diagnostics."""
+import argparse
 import sys
 import unittest
 from pathlib import Path
@@ -15,7 +16,11 @@ class Result(unittest.TestResult):
 
 
 if __name__ == "__main__":
-    directory = Path(__file__).resolve().parents[1] / "tests"
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--phase", choices=(1,2), type=int, default=1)
+    args = parser.parse_args()
+    root = Path(__file__).resolve().parents[1]
+    directory = root / ("tests" if args.phase == 1 else "phase2/tests")
     suite = unittest.defaultTestLoader.discover(str(directory))
     result = Result()
     suite.run(result)

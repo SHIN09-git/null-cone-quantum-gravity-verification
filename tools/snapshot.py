@@ -5,7 +5,7 @@ from pathlib import Path
 from zipfile import ZIP_STORED, ZipFile, ZipInfo
 
 ROOT = Path(__file__).resolve().parents[1]
-PREFIX = "null-cone-4.4-v0.1.0"
+PREFIX = "null-cone-gravity-v0.2.0"
 MANIFEST = "SHA256SUMS"
 
 

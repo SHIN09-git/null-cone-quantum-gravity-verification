@@ -7,11 +7,12 @@ import shutil
 import subprocess
 import tempfile
 
-SOURCE = Path(__file__).resolve().parents[1] / "report"
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--phase", type=int, choices=(1, 2), default=1)
     parser.add_argument("--out", type=Path, required=True, help="a new PDF filename")
     parser.add_argument("--logs", type=Path, help="optional new directory for raw local TeX logs")
     args = parser.parse_args()
@@ -26,7 +27,8 @@ def main():
     command = ["pdflatex", "-no-shell-escape", "-halt-on-error", "-interaction=nonstopmode", "report.tex"]
     with tempfile.TemporaryDirectory() as directory:
         work = Path(directory)
-        for source in SOURCE.glob("*.tex"):
+        source_directory = ROOT / ("report" if args.phase == 1 else "phase2/report")
+        for source in source_directory.glob("*.tex"):
             shutil.copyfile(source, work / source.name)
         for index in (1, 2):
             result = subprocess.run(command, cwd=work, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)

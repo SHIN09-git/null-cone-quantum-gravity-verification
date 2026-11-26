@@ -1,0 +1,8 @@
+paper-v1.pdf 1979526 d17caccbee57cfbee6fc2eeed2e5a53467c9401be979fd2952aa2bf92d5443af
+source-v1.tar.gz 904770 1251f05ae2fac0bc307286550e115f3a9ef9228187822b9f40aad9c33b3407be
+2310.02189v3.pdf 1171991 1469cb6bda04350087b5784188595c513dbb87158fa2abff1b378c024ced3d96
+TeX source lines: 1583, 1800, 1822, 1834, 1881, 2058, 3535, 3547, 3647, 3692, 3753
+80 PDF equation destinations and reference [36] checked
+full-v1.html 3358913 ff9bce91eebb40c5f8ebdfbe4d229f2245856409580d52b71b6bc02f621b0af4
+45 outline entries, 84 PDF references, 526 HTML tags; extra single equations ['A.14', 'A.32', 'C.21', 'D.4']
+PASS

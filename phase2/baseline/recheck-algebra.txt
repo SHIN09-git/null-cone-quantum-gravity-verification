@@ -1,0 +1,16 @@
+hard cutoff paired Z/(w delta) = n
+hard cutoff biased Z/(w delta) = -2*n
+hard cutoff finite positive Z/(w delta) = 1
+hard cutoff zero Z/(w delta) = 0
+hard cutoff finite negative Z/(w delta) = -1
+noncommuting finite projection norm 257/864 right second moment numerator 2273/5184
+absolute weight over rectangular joint cut = 2 p(1-p) Z
+dyadic n 1 rank times R_2 1
+dyadic n 4 rank times R_2 149/144
+dyadic n 16 rank times R_2 2389/2304
+dyadic n 64 rank times R_2 12743/12288
+Schwarzschild (5.68) into (5.69): 106/45
+full weighted filter cost 1/2; conditional squared center displacement 2*s + 12
+three-axis Bargmann growth bound -1/16 times |z|^2
+Dirichlet-cosine diagonal norm pi/2; focusing lower factor pi**2*epsilon/(8 - 8*epsilon)
+PASS

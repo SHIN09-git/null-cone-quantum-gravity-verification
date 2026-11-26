@@ -1,5 +1,13 @@
 # Version record
 
+## v0.2.0 · 26 November 2026
+
+*Closing the last cut in null-cone quantum gravity*. The phase-two note audits (5.30c)–(5.39) against Sections 2–6 and Appendices A–E, with follow-on checks of (5.44) and (5.66). Cite the Null-cone amplitude verification project, version v0.2.0, and the immutable tagged release when referring to this analysis. The findings concern the fixed v1 manuscript. [Tagged release](https://github.com/SHIN09-git/null-cone-quantum-gravity-verification/releases/tag/v0.2.0) · [English note](phase2/report/report.pdf) · [中文报告](phase2/REPORT_CN.md)
+
+The distribution uses the archive root **null-cone-gravity-v0.2.0/**. Its per-member hashes are listed in SHA256SUMS. The downloadable checksums identify the ZIP and standalone phase-two PDF. All six offline commands and both output streams per command appear in the [phase-two manifest](phase2/baseline/run.json). The [source record](reference/phase2.json) pins the manuscript PDF and source tarball, the TeX member, selected source lines, printed equation locations and the version of reference [36]. The phase-one report and its public baseline remain available in this distribution and at its original tag.
+
+## v0.1.0 · Section 4.4
+
 **v0.1.0 · 26 November 2026.** Scope covers arXiv:2611.34924v1, Section 4.4, equations (4.29) through (4.33) and mathematical checks of those equations. The weak-coupling expansion is derived from the scalar amplitude in (4.33). The release contains two counterexamples to precisely stated extensions.
 
 Suggested citation: Null-cone amplitude verification project. *An Independent Verification of Null-Cone Quantum Gravity: Transition Amplitudes and Convergence.* v0.1.0, 26 November 2026. [Report and reproducibility archive](https://github.com/SHIN09-git/null-cone-quantum-gravity-verification/releases/tag/v0.1.0). Record the distribution SHA-256 if identifying a particular copy. The arXiv identifier belongs to the studied paper.

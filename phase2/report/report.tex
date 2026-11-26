@@ -1,0 +1,130 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[a4paper,left=24mm,right=24mm,top=24mm,bottom=24mm,headheight=14pt,headsep=7mm,footskip=12mm]{geometry}
+\usepackage{amsmath,amssymb,xcolor}
+\definecolor{ink}{rgb}{0.08,0.25,0.34}
+\usepackage[unicode,colorlinks=true,linkcolor=ink,urlcolor=ink]{hyperref}
+\hypersetup{pdftitle={Closing the last cut in null-cone quantum gravity},pdfauthor={Null-cone amplitude verification project},pdfsubject={Section 5.2 of arXiv:2611.34924v1}}
+\ifdefined\pdfinfoomitdate\pdfinfoomitdate=1\fi
+\ifdefined\pdftrailerid\pdftrailerid{}\fi
+\ifdefined\pdfsuppressptexinfo\pdfsuppressptexinfo=15\fi
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 0.4pt minus 0.4pt}
+\setlength{\emergencystretch}{2em}
+\raggedbottom
+\makeatletter
+\def\ps@audit{\def\@oddhead{\small\sffamily\color{ink}Null-cone gravity verification\hfil Section 5.2}
+\def\@oddfoot{\small\sffamily Release v0.2.0\hfil\thepage}\let\@evenhead\@oddhead\let\@evenfoot\@oddfoot}
+\makeatother
+\pagestyle{audit}
+\newcommand{\topic}[1]{\section*{\color{ink}#1}}
+\newcommand{\subtopic}[1]{\par\medskip{\large\bfseries #1}\par\nobreak}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\HH}{\mathcal H}
+\newcommand{\paper}[2]{\href{https://arxiv.org/html/2611.34924v1\##1}{#2}}
+\newcommand{\release}{\href{https://github.com/SHIN09-git/null-cone-quantum-gravity-verification/releases/tag/v0.2.0}{Release, source code and numerical records}}
+\begin{document}
+
+{\Huge\bfseries Closing the last cut in\\[2pt] null-cone quantum gravity\par}
+\medskip
+{\large An audit of Section 5.2 of \href{https://arxiv.org/abs/2611.34924v1}{arXiv:2611.34924v1}\par}
+{\small Null-cone amplitude verification project \hfill 26 November 2026}
+
+\subtopic{The inference at issue}
+On p.~43, following (5.38), Venkatesa Chandrasekaran appeals to diffeomorphism invariance and invokes the open gluing formula (4.29) to identify a sum of cut amplitudes with the uncut geometry. If that identification holds along the specified cutoff family, the proposed contradiction can establish finite dimension. We could verify the finite-projection estimate. We did not find an independent proof of the identification in the remainder of v1. The dimension of the four-dimensional gravitational Hilbert space remains open in this audit.
+
+\subtopic{Fixed external states and reflected preparations}
+Let $H=P_{\mathcal D}\HH_\omega$ be a nonzero clock window, $K$ the future cap space and $s=\mathcal A/(4G_N\hbar)$. Absorb the two open propagators into fixed vectors $x,y$. For an orthonormal basis $\{e_i\}$, Cauchy--Schwarz gives
+\[
+ \sum_i|\langle y,e_i\rangle\langle e_i,x\rangle|\le \|y\|\|x\|.
+\]
+This controls the limit of $\langle y,Px\rangle$ when $P$ tends strongly to the identity, including in infinite dimension. Figure~26 of v1 distinguishes gluing the future cap from the subsequent closing at the corner.
+
+Grant the clock/area bound and the preparation in (5.21)--(5.30c). On $H$, $C_b:H\to K$ and $W=C_b^\dagger C_b=e^{-\hat s}f_b(\hat s)$ obey $cI\le W\le I$, where $c=e^{-s_*}\min_{[0,s_*]} f_b>0$. For a finite-rank orthogonal projection $P$, let $E_P$ be an orthonormal basis of its range. Time-reflected gluing on both boundaries involves
+\[
+ v_P=\sum_{e_i\in E_P} C_be_i\otimes\bar e_i,\qquad
+ T_P=\|v_P\|^2=\Tr(PW)\ \ge c\,\rank P.
+\]
+The external vector now changes with the cutoff. A vector in $K\otimes\bar H$ with the full coefficients of $C_b$ has finite norm exactly when $\sum_i\|C_be_i\|^2$ is finite. Under this lower bound that condition is equivalent to $\dim H<\infty$. A separate path-integral construction could give a finite scalar for a particular signed insertion. Its relation to $v_P$ would still require a proof.
+
+{\small\paper{S4.SS4}{Section 4.4, pp.~32--34}\quad
+\paper{S5.SS2}{Section 5.2, pp.~39--45}\quad\release}
+
+\clearpage
+\topic{A sufficient theorem and a cutoff test}
+
+Write $\delta=\delta_\eta>0$ for the bounded vacuum response of (5.34),
+$\Delta_P$ for the change measured in $v_P/\sqrt{T_P}$, and
+$X=\Delta_\eta O-\delta I/2$. The manuscript subtracts half the vacuum signal to compare a nonpositive cut with a positive smooth, uncut expectation. If $\dim H$ is infinite, one member of a finite partition of $[0,s_*]$ into narrow bands has the same Hilbert dimension as $H$. Choose a basis adapted to that band. Group it into cycles of length $r$ with at most one vector outside the band in each cycle. Finite unions of complete cycles exhaust the basis and tend strongly to $I$. For a nonseparable space they form a net ordered by inclusion. No discrete area spectrum is needed.
+
+Equations (5.32) and (D.22)--(D.25) bound the response for every such union:
+\[
+ |\Delta_P|\le \frac{|\eta|}{\pi}\|O\|
+ \sqrt{(\Delta s)^2+\frac{s_*^2}{rc}} .
+\]
+Take the band width $\Delta s$ small and then $r$ large at fixed physical parameters. The bound becomes at most $\delta/4$. Consequently
+\[
+ Z_P[X]=T_P(\Delta_P-\delta/2)
+       \le -\frac{c\delta}{4}\rank P.
+\]
+Thus a finite limit of this \emph{one} signed, unnormalized amplitude along \emph{this} family would already exclude infinite dimension. A proof of finiteness for every closed insertion would be stronger than needed.
+
+\subtopic{Five exhaustions of the same two-level operator}
+Give each of the areas 1 and 3 countably infinite multiplicity. Take $s_b=3$ and $\sigma_s=1$ in the manuscript's Gaussian. Both weights are $w=e^{-3}$. Let $F$ exchange the same-index partners and set $O=-F\otimes\bar F$. At rapidity $\eta=\pi$, the two areas have a relative phase of one radian, so a single normalized correlated pair gives $\delta=1-\cos 1$. Keep the first $m$ labels of area 1 and the first $n$ labels of area 3, $m\ge n$. Only $n$ pairs contribute to the off-diagonal expectation:
+\[
+ T_P=w(m+n),\qquad \Delta_P=\frac{2n\delta}{m+n},\qquad
+ \frac{Z_P[X]}{w\delta}=\frac{3n-m}{2}.
+\]
+\begin{center}\renewcommand{\arraystretch}{1.23}
+\begin{tabular}{lccccc}
+\hline
+Number $m$ & $n$ & $3n-2$ & $3n$ & $3n+2$ & $7n$\\
+$Z_P[X]/(w\delta)$ & $n$ & $1$ & $0$ & $-1$ & $-2n$\\
+\hline
+\end{tabular}
+\end{center}
+All five increasing exhaustions commute with area and include each basis label. The second reproduces the single-pair signed amplitude at every $n$, while its normalized response tends to $\delta/2$. This example satisfies unitary open gluing, the positive Gaussian weights and the bounded flip measurement. It supplies no solution of the four-dimensional Einstein constraints, smooth local shear estimate or regulator-independent geometric closing law.
+
+\clearpage
+\topic{Can another part of v1 supply the missing step?}
+
+\textbf{Clock and open dynamics.} The manuscript's own JT model in (2.14)--(2.17) has infinitely many orthogonal clock phases in a bounded window and a divergent reflected trace. Four-dimensional shear couples to the clock. Section 5.1 still has to establish a nonzero window in the chosen representation. Footnote~18 identifies the use of a classical tail estimate for noncommuting operators in (5.16) as heuristic. Even granting the required domain and a nonzero window leaves the separate closed-limit question. Classical field matching in Section 3.6 and unitary changes of variables in Appendix C.1 preserve open pairings. Section 6 and Appendix D.1 fix an incoming state for their normalized semiclassical evolution.
+
+\textbf{Local shear.} The free kernel in (5.29) and (5.76) obeys
+\[
+ \operatorname{sech}^2(\eta/2)=4\int_0^\infty
+ \frac{\nu\cos(\eta\nu)}{\sinh(\pi\nu)}\,d\nu.
+\]
+It follows by Fourier transforming $\operatorname{sech}^2(t/2)$ with $y=e^t$ and applying the beta integral. The determinant cancels in (5.28a), a normalized source ratio. Applying (D.36) to the uncut $C_b$ requires the smooth-state estimate on the same preparation and the separation of scales. This calculation supplies physical evidence for a local signal.
+
+\textbf{Replica test.} For $N=\rank P$ and $t>1$ the eigenvalues of $PWP|_{PH}$ lie in $[c,1]$. Convexity and $\lambda^t\le\lambda$ give
+\[
+ N^{1-t}\le R_P(t)=\frac{\Tr[(PWP)^t]}{T_P^t}
+ \le (cN)^{1-t}.
+\]
+A positive lower limit for the exact finite-cut ratio would prove finite dimension independently. The positive quantity computed in (D.48)--(D.49) uses an integral over a regular family of one-loop saddles. The focusing bound holds with corner and cap data fixed. Identifying that integral with the full physical cutoff limit is an additional step. A continuous area band with one-dimensional fibers already separates the integral of a smooth weight from the Hilbert-space trace of the multiplication operator.
+
+\textbf{Closed-amplitude axioms.} E.1 condition 5 requires finite closed amplitudes with suitable spectral filters. On the bounded corner spectrum one such filter equals $I$. Together with the physical trace identification (E.15a), the axiom suffices. E.3 explicitly invokes (5.39c) before (E.17) to verify it for gravity. Using this verification to prove (5.39c) would be circular. An independent finite, nonzero positive trace on the full physical $B(H)$ would also suffice: two isometries onto complementary copies of an infinite $H$ would force $\tau(I)=2\tau(I)$. Strong density of the source algebra does not extend an arbitrary trace in that representation. The Euclidean paper cited as [36] assumes finite amplitudes of admissible closed sources in Axiom~1.
+
+{\small\paper{A4.SS3}{Appendix D.3}\quad\paper{A5.SS3}{Appendix E.3}\quad
+\href{https://arxiv.org/pdf/2310.02189v3\#page=9}{Colafranceschi, Dong, Marolf and Wang, p.~8}}
+
+\clearpage
+\topic{Thermal consequences and the open question}
+
+\textbf{Joint AdS cut.} Grant a finite diamond with area weights $v_a$ and a band of probability $0<p<1$. With exterior thermal weights $w_i$, (5.44) has real summands $w_i v_a(\mathbf1_I(a)-p)$. Each complete inner row sums to zero. Their total absolute weight is exactly
+\[
+ \sum_{i,a}|w_i v_a(\mathbf1_I(a)-p)|=2p(1-p)\sum_i w_i.
+\]
+The directed sum over arbitrary finite label sets converges precisely when the exterior thermal trace is finite. For $v=(2/3,1/3)$ and $E_i=E_0+\log(i)/\beta_0$, all bounded energy bands are finite but $w_i=1/i$ at $\beta_0$. Positive and negative labels through $n$ and $3n$ give $2(H_n-H_{3n})/9\to-2\log(3)/9$. Completing equal rows always gives zero. The model tests an operator implication. The reflecting AdS dynamics are additional physical input.
+
+\textbf{Area windows in the entropy calculation.} With $u=s_b>0$ in (5.66), put $f_u(s)=\exp[-(s-u)^2/(4u)]$ and $d\mu=du/\sqrt{4\pi u}$. For $s\ge0$ the Gaussian integral gives $\int f_u(s)^\alpha d\mu=\alpha^{-1/2}$ for all $\alpha>0$. Its derivative at 1 is integrable, since a constant times $f_u^{1/2}$ dominates the derivative near 1. Let $Z_u=\Tr(e^{-\hat s}f_u(\hat s))$. For $0<Z=\Tr e^{-\hat s}<\infty$, positive summation gives an exact average:
+\[
+ \int \frac{Z_u}{Z}\,\langle-\log f_u\rangle_u\,d\mu=\frac12 .
+\]
+Individual windows can behave differently. Take $s_j=j^4$, clock readings $j^2$ and multiplicities $\lceil e^{s_j}(s_j^\gamma-s_{j-1}^\gamma)\rceil$, $\gamma=257/90$. Each finite clock window has finite dimension and the mean clock fraction tends to $2\gamma/(2\gamma+1)=257/302$. At $u=(s_j+s_{j+1})/2$ every spectral point pays at least $(s_{j+1}-s_j)^2/(16u)\sim j^2$. With $s_*=3u$ these centers lie inside the macroscopic band in v1. A uniform estimate there needs local spectral or saddle information. This example leaves the fixed-mass one-loop coefficient undetermined; the substitution in (5.69) gives $106/45$ as stated.
+
+\textbf{Question for clarification.} Which independently defined uncut observable or estimate identifies $Z_P[X]$ for the complete-cycle exhaustion of (5.38) with the same finite gravitational amplitude? Alternatively, what controls the difference between the one-loop ratio (D.49) and the exact all-state ratio (D.47)?
+
+{\small The project lead set the scope and authorized publication. OpenAI Codex carried out the proofs and computations. Separate AI contexts challenged the assumptions before reading the primary findings. The proofs, numerical baselines and counterexample hypotheses are public. No external expert review or signed human line-by-line audit is documented for this release. \release.}
+\end{document}

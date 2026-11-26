@@ -1,0 +1,89 @@
+{
+  "python": "3.12.10",
+  "packages": {
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0"
+  },
+  "steps": [
+    {
+      "command": [
+        "python",
+        "-B",
+        "-u",
+        "phase2/calculations/algebra.py"
+      ],
+      "exit_code": 0,
+      "sha256": {
+        "cut-algebra.txt": "75074aa439717711d7b726f2b2ab3c6a6738b85d1c73a54e6291431e9db47406",
+        "cut-algebra.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-u",
+        "phase2/calculations/experiments.py"
+      ],
+      "exit_code": 0,
+      "sha256": {
+        "cut-numeric.jsonl": "054ec4cf083acc40d3c745dadfc5d116a031e4ed1b9aaa9d2a0e8dd4084d88c2",
+        "cut-numeric.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-u",
+        "phase2/calculations/independent.py"
+      ],
+      "exit_code": 0,
+      "sha256": {
+        "paired-check.txt": "b88ed789d37dccf7d0d618e3b0f94b248eca466621d0c428ef5ac693972bcb16",
+        "paired-check.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-u",
+        "phase2/calculations/exact_checks.py"
+      ],
+      "exit_code": 0,
+      "sha256": {
+        "recheck-algebra.txt": "0c598af805a5cda42927fe7e88e339ad8370ebf4899632a16a5f630aa16da4ae",
+        "recheck-algebra.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-u",
+        "phase2/calculations/numerical.py"
+      ],
+      "exit_code": 0,
+      "sha256": {
+        "recheck-numeric.jsonl": "d886d75246fea5023ca7e9ada6f14e978bf0202384ebcffebd46160d118a03ad",
+        "recheck-numeric.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "command": [
+        "python",
+        "-B",
+        "-u",
+        "tools/run_tests.py",
+        "--phase",
+        "2"
+      ],
+      "exit_code": 0,
+      "sha256": {
+        "tests.txt": "b8b3aac605c597a76731ada7379f893a18bee6d79a3decd59bb51ae07fa5f513",
+        "tests.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ]
+}

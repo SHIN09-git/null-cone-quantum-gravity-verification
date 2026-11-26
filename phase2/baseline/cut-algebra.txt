@@ -1,0 +1,12 @@
+paired squared norm minus Tr W = 0
+two-level boosted numerator minus K = 0
+isolated diagonal preparation has zero response = 0
+isolated diagonal preparation has zero response = 0
+right marginal on noncommuting projection = 0
+right transpose for complex test observable = 0
+signed numerator for k inside per one outside = 0
+Abel kernel at separated points = 0
+off-diagonal coincidence regulator removed = 0
+vacuum boost fraction = 0
+smooth cutoff normalized limit = 0
+all symbolic checks passed

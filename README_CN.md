@@ -1,10 +1,31 @@
-# 光锥量子引力的独立核验：跃迁振幅与收敛性
+# 光锥量子引力独立核验
 
-*A Reproducibility Study of Section 4.4 of arXiv:2611.34924v1*
+[English README](README.md) · [v0.2.0 发布页](https://github.com/SHIN09-git/null-cone-quantum-gravity-verification/releases/tag/v0.2.0) · [研究对象 arXiv:2611.34924v1](https://arxiv.org/abs/2611.34924v1)
 
-[English README](README.md) · [英文技术报告 PDF](report/report.pdf) · [报告 LaTeX 源文件](report/report.tex) · [v0.1.0 发布页](https://github.com/SHIN09-git/null-cone-quantum-gravity-verification/releases/tag/v0.1.0)
+## 第二阶段 · 最后一条边界闭合时，振幅之和是否收敛
 
-本快照只核验 Venkatesa Chandrasekaran 的论文 *An algebraic quantization of gravity from the null cone*，arXiv:2611.34924v1 第 4.4 节式（4.29）至（4.33）。在论文选定的高斯态、单个实角谐函数、单个极化和相位下，引力子对的连通振幅在每个固定正耦合处都绝对收敛。这里的“连通”指从两次插入的期望中减去两个单次期望的乘积。若先截断径向模式再按耦合展开，三阶系数随截断对数发散。[论文第 4.4 节](https://arxiv.org/html/2611.34924v1#S4.SS4)
+式（4.29）固定了初态和末态。第 43 页在（5.38）后用它闭合最后一条边界，此时还要让每个允许态与自己配对，再把所有配对的振幅相加，即求迹。（5.30c）给每个正交态的正权重一个共同下界。重新审读正文六章和附录 A–E，我们核实了有限截断的估计，也找到几种足以证明有限维的明确条件。v1 是否独立证明作者选定的截断能回到同一个有限未切振幅，仍然存疑。四维物理态空间的维数尚未确定。[面向大学物理读者的报告](phase2/REPORT_CN.md) · [英文技术说明](phase2/report/report.pdf)
+
+| 结论 | 证据与范围 |
+|---|---|
+| **条件性成立** | 只要独立证明同一个有符号插入沿原文那一族截断有有限极限，有限维就能推出。该极限的符号无需预设。[逐式推导](phase2/DERIVATION.md) |
+| **发现反例** | 同一两面积模型的一种截断始终给出同一正有限值，另一种趋于负无穷，两组都纳入每个基态。反例针对从开放拼接推到闭合的数学命题；完整四维引力动力学仍待实现。[模型前提](phase2/COUNTERMODEL.md) · [五种截断的精确结果](phase2/RECHECK.md) |
+| **存疑** | 附录 D.3 得到正的一圈鞍点比值；它与（D.47）精确全态比值的等同仍待证明。附录 E.3 的引力实例回引（5.39c），倒用这一步会形成循环。[命题依赖](phase2/CLAIMS.md) · [显式前提](phase2/ASSUMPTIONS.md) |
+| **严格验证** | （5.44）联合求和的绝对总权重等于 $2p(1-p)Z_\beta$。总热迹有限非零时，（5.66）的窗代价按热权取平均恰好为 $1/2$；个别窄窗仍可能代价无界。[全篇复核推导](phase2/RECHECK.md) |
+
+OpenAI Codex 完成推导、程序和报告，独立 AI 上下文进行了反审。项目记录中尚无外部专家评审或人工逐式核验的签署。第二阶段公开 14 项测试、96 行高精度记录，以及每步的命令、标准输出、错误输出与哈希。[逐式判定](phase2/FINDINGS.md) · [复现说明与基准数据](phase2/REPRODUCIBILITY.md)
+
+在仓库根目录，使用已安装锁定依赖的 Python 执行下列命令。输出目录须为新目录。
+
+~~~sh
+python -B reproduce.py --phase 2 --out ../null-cone-phase2-run --compare
+~~~
+
+## 第一阶段 · 第 4.4 节的跃迁振幅与收敛性
+
+[英文技术报告](report/report.pdf) · [报告的 LaTeX 源文件](report/report.tex) · [v0.1.0 发布页](https://github.com/SHIN09-git/null-cone-quantum-gravity-verification/releases/tag/v0.1.0)
+
+第一阶段核验 Venkatesa Chandrasekaran 的论文 *An algebraic quantization of gravity from the null cone*，arXiv:2611.34924v1 第 4.4 节式（4.29）至（4.33）。在论文选定的高斯态、单个实角谐函数、单个极化和相位下，引力子对的连通振幅在每个固定正耦合处都绝对收敛。这里的“连通”指从两次插入的期望中减去两个单次期望的乘积。若先截断径向模式再按耦合展开，三阶系数随截断对数发散。[论文第 4.4 节](https://arxiv.org/html/2611.34924v1#S4.SS4)
 
 **研究贡献与评审状态。** OpenAI Codex 完成了数学推导，编写并运行了复现程序，也起草了报告。这一版尚未经过外部专业人士审查。
 

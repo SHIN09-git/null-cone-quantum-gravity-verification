@@ -1,10 +1,31 @@
-# An Independent Verification of Null-Cone Quantum Gravity: Transition Amplitudes and Convergence
+# Independent verification of null-cone quantum gravity
 
-*A Reproducibility Study of Section 4.4 of arXiv:2611.34924v1*
+[中文说明](README_CN.md) · [v0.2.0 release](https://github.com/SHIN09-git/null-cone-quantum-gravity-verification/releases/tag/v0.2.0) · [Primary manuscript v1](https://arxiv.org/abs/2611.34924v1)
 
-[光锥量子引力的独立核验：跃迁振幅与收敛性（中文）](README_CN.md) · [English technical report (PDF)](report/report.pdf) · [Report source](report/report.tex) · [Release v0.1.0](https://github.com/SHIN09-git/null-cone-quantum-gravity-verification/releases/tag/v0.1.0)
+## Section 5.2 · Closing the last cut
 
-This independent audit checks equations (4.29)–(4.33) in Section 4.4 of Venkatesa Chandrasekaran's *An algebraic quantization of gravity from the null cone*, arXiv:2611.34924v1. With one real angular harmonic, one polarization, the specified Gaussian state and the specified mode rotation, the connected radial pair amplitude is absolutely convergent at every fixed positive coupling. At radial cutoff $N$, the cubic coefficient is $-iH_N$ with $H_N=\sum_{k=1}^N 1/k$. Its magnitude grows logarithmically as the cutoff is removed. The derivations and their domains are on pp. 2–5 of the report. [Primary manuscript, Section 4.4](https://arxiv.org/html/2611.34924v1#S4.SS4)
+What allows the resolution of the identity between two fixed states in (4.29) to be used when the last boundary is closed in (5.38)? In the fixed clock window, (5.30c) gives each orthogonal state a positive weight bounded below by the same constant. The total weight of a rank-$N$ cut therefore grows at least linearly with $N$. Re-reading the six main sections and Appendices A–E, we could verify the finite-cut estimate and identify conditions under which (5.39) follows. We did not find an independent proof that the selected cutoffs converge to the same finite uncut amplitude. The physical dimension of the four-dimensional diamond remains unresolved in this audit. [English technical note, pp. 1–3](phase2/report/report.pdf) · [逐式核验](phase2/FINDINGS.md)
+
+| Finding | Evidence and scope |
+| --- | --- |
+| One finite limit would suffice | In infinite dimension, the manuscript's complete-cycle construction yields one fixed signed insertion whose amplitude tends to negative infinity. Showing finite convergence along that particular exhaustion would prove finite dimension. [Derivation](phase2/DERIVATION.md) |
+| A positive value along one exhaustion can be misleading | In a two-area operator model with identical Gaussian weights, five increasing exhaustions give positive infinity, a fixed positive number, zero, a fixed negative number and negative infinity. All include every basis label. The model tests the inference from open gluing and supplies no four-dimensional gravitational solution. [Countermodel](phase2/COUNTERMODEL.md) · [Exact calculation](phase2/calculations/exact_checks.py) |
+| Two alternative proof routes have identifiable inputs | A positive lower limit for the exact ratio (D.47) would suffice. The ratio evaluated in (D.49) is a one-loop regular-saddle integral. Appendix E.3 invokes (5.39c) in its verification of closed-amplitude finiteness. [Re-examination](phase2/RECHECK.md) |
+| Some downstream results survive as exact statements | The absolute joint sum in (5.44) is $2p(1-p)Z_\beta$. In (5.66), a finite nonzero thermal trace gives an exact thermal-weighted mean window cost of $1/2$, even though costs of individual windows can diverge. [English note, p. 4](phase2/report/report.pdf#page=4) |
+
+OpenAI Codex performed the analysis and computations. Separate AI contexts challenged the derivations. No external specialist review or signed human line-by-line review of this audit is documented. The public record includes the proofs, 14 tests and 96 numerical records for this phase. [中文全篇复核](phase2/REPORT_CN.md) · [Review and reproducibility](phase2/REPRODUCIBILITY.md)
+
+From the root of this checkout, using the two pinned Python dependencies, run:
+
+~~~sh
+python -B reproduce.py --phase 2 --out ../null-cone-phase2-run --compare
+~~~
+
+## Section 4.4 · Transition amplitudes and convergence
+
+[English report](report/report.pdf) · [LaTeX source](report/report.tex) · [Section 4.4 release v0.1.0](https://github.com/SHIN09-git/null-cone-quantum-gravity-verification/releases/tag/v0.1.0)
+
+The first study checks equations (4.29)–(4.33) in Section 4.4 of Venkatesa Chandrasekaran's *An algebraic quantization of gravity from the null cone*, arXiv:2611.34924v1. With one real angular harmonic, one polarization, the specified Gaussian state and the specified mode rotation, the connected radial pair amplitude is absolutely convergent at every fixed positive coupling. At radial cutoff $N$, the cubic coefficient is $-iH_N$ with $H_N=\sum_{k=1}^N 1/k$. Its magnitude grows logarithmically as the cutoff is removed. The derivations and their domains are on pp. 2–5 of the report. [Primary manuscript, Section 4.4](https://arxiv.org/html/2611.34924v1#S4.SS4)
 
 **Contributions and review.** OpenAI Codex carried out the mathematical derivations, wrote and ran the reproducibility checks, and drafted this report. This release has not been reviewed by an external specialist.
 
