@@ -2,6 +2,10 @@
 
 [中文说明](README_CN.md) · [v0.2.0 release](https://github.com/SHIN09-git/null-cone-quantum-gravity-verification/releases/tag/v0.2.0) · [Primary manuscript v1](https://arxiv.org/abs/2611.34924v1)
 
+## Local v0.3.0-rc.1 candidate · Lean 4
+
+Lean checks the five incompatible cutoffs of a single bounded insertion, the finite-rank inequalities behind (5.39), and the scalar series in (4.33). Use the phase-three directory for the toolchain, fully stated theorems, independent semantic review, and build logs. The earlier public releases can still be obtained at their original tags. [Lean project](phase3/README.md) · [English report](phase3/REPORT_EN.md) · [Theorem map](phase3/FORMALIZATION_MAP.md)
+
 ## Section 5.2 · Closing the last cut
 
 What allows the resolution of the identity between two fixed states in (4.29) to be used when the last boundary is closed in (5.38)? In the fixed clock window, (5.30c) gives each orthogonal state a positive weight bounded below by the same constant. The total weight of a rank-$N$ cut therefore grows at least linearly with $N$. Re-reading the six main sections and Appendices A–E, we could verify the finite-cut estimate and identify conditions under which (5.39) follows. We did not find an independent proof that the selected cutoffs converge to the same finite uncut amplitude. The physical dimension of the four-dimensional diamond remains unresolved in this audit. [English technical note, pp. 1–3](phase2/report/report.pdf) · [逐式核验](phase2/FINDINGS.md)
@@ -79,6 +83,6 @@ The first command reads the two official v1 files over HTTPS and verifies their 
 
 ### Authorship and review
 
-The project lead defined the question and scope and authorized this release. OpenAI Codex developed the primary proofs, wrote and ran the symbolic and numerical programs, and prepared the report and release files. A separate AI context read the manuscript before seeing the first analysis, developed adversarial checks and wrote the standard-library script. The analytic arguments are available for inspection. Model agreement supplies no independent mathematical proof.
+The project lead defined the question and scope and authorized the published phase-one and phase-two releases. OpenAI Codex developed the primary proofs, wrote and ran the symbolic and numerical programs, and prepared the report and release files. A separate AI context read the manuscript before seeing the first analysis, developed adversarial checks and wrote the standard-library script. The analytic arguments are available for inspection. Model agreement supplies no independent mathematical proof.
 
 As of 26 November 2026 the project record contains no signed or documented human line-by-line mathematical audit and no external peer-review report for this verification. The studied paper's author is credited for the paper. For citation and the public-release terms, see the [version record](VERSION.md) and [licensing notice](LICENSE.md).

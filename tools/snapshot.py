@@ -1,11 +1,12 @@
 """Check the member hashes or build the deterministic distribution from verified members."""
 import argparse
 from hashlib import sha256
+import os
 from pathlib import Path
 from zipfile import ZIP_STORED, ZipFile, ZipInfo
 
 ROOT = Path(__file__).resolve().parents[1]
-PREFIX = "null-cone-gravity-v0.2.0"
+PREFIX = "null-cone-gravity-v0.3.0-rc.1"
 MANIFEST = "SHA256SUMS"
 
 
@@ -17,11 +18,14 @@ def members():
             raise ValueError("invalid or repeated manifest entry")
         expected[name] = checksum
     actual = set()
-    for entry in ROOT.iterdir():
-        if entry.name == ".git":
-            continue  # A checkout can use either a metadata directory or a worktree pointer.
-        paths = entry.rglob("*") if entry.is_dir() else (entry,)
-        actual.update(p.relative_to(ROOT).as_posix() for p in paths if p.is_file())
+    for folder, dirs, filenames in os.walk(ROOT):
+        parent = Path(folder)
+        if parent == ROOT:
+            dirs[:] = [d for d in dirs if d != ".git"]
+        if parent == ROOT / "phase3":
+            dirs[:] = [d for d in dirs if d not in {".lake", "scratch"}]
+        actual.update((parent / f).relative_to(ROOT).as_posix() for f in filenames
+                      if (parent, f) != (ROOT, ".git"))
     if actual != set(expected) | {MANIFEST}:
         raise SystemExit("member list mismatch: " + ", ".join(sorted(actual ^ (set(expected) | {MANIFEST}))))
     for name, checksum in expected.items():

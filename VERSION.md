@@ -1,5 +1,9 @@
 # Version record
 
+## v0.3.0-rc.1 · Local Lean verification candidate
+
+The candidate branches from public v0.2.0, commit `44df2c1e4915c0e654dd5907d91b775e83f31326`. The proof toolchain and all dependency revisions are locked in phase3. The archive root for this candidate is `null-cone-gravity-v0.3.0-rc.1/`. [Phase-three project](phase3/README.md) · [Machine evidence](phase3/evidence/run.json)
+
 ## v0.2.0 · 26 November 2026
 
 *Closing the last cut in null-cone quantum gravity*. The phase-two note audits (5.30c)–(5.39) against Sections 2–6 and Appendices A–E, with follow-on checks of (5.44) and (5.66). Cite the Null-cone amplitude verification project, version v0.2.0, and the immutable tagged release when referring to this analysis. The findings concern the fixed v1 manuscript. [Tagged release](https://github.com/SHIN09-git/null-cone-quantum-gravity-verification/releases/tag/v0.2.0) · [English note](phase2/report/report.pdf) · [中文报告](phase2/REPORT_CN.md)

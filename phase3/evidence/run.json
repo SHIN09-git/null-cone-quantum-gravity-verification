@@ -1,0 +1,280 @@
+{
+  "utc_start": "2026-11-26T09:44:03.058258+00:00",
+  "lean": "Lean (version 4.24.0, x86_64-w64-windows-gnu, commit 797c613eb9b6d4ec95db23e3e00af9ac6657f24b, Release)",
+  "lake": "Lake version 5.0.0-src+797c613 (Lean version 4.24.0)",
+  "dependencies": {
+    "mathlib": "f897ebcf72cd16f89ab4577d0c826cd14afaafc7",
+    "plausible": "dfd06ebfe8d0e8fa7faba9cb5e5a2e74e7bd2805",
+    "LeanSearchClient": "99657ad92e23804e279f77ea6dbdeebaa1317b98",
+    "importGraph": "d768126816be17600904726ca7976b185786e6b9",
+    "proofwidgets": "556caed0eadb7901e068131d1be208dd907d07a2",
+    "aesop": "725ac8cd67acd70a7beaf47c3725e23484c1ef50",
+    "Qq": "dea6a3361fa36d5a13f87333dc506ada582e025c",
+    "batteries": "8da40b72fece29b7d3fe3d768bac4c8910ce9bee",
+    "Cli": "91c18fa62838ad0ab7384c03c9684d99d306e1da"
+  },
+  "modules": [
+    "NullCone.Amplitude",
+    "NullCone.Area",
+    "NullCone.Counterexample",
+    "NullCone.Cutoffs",
+    "NullCone.Dilution",
+    "NullCone.Dimension",
+    "NullCone.Functional",
+    "NullCone.Hilbert",
+    "NullCone.HilbertSchmidt",
+    "NullCone.Limits",
+    "NullCone.Model",
+    "NullCone.Perturbation",
+    "NullCone.Projections",
+    "NullCone.Response",
+    "NullCone.Series",
+    "NullCone.Trace"
+  ],
+  "counts": {
+    "modules": 16,
+    "public_theorems": 145
+  },
+  "commands": [
+    {
+      "argv": [
+        "lake.EXE",
+        "build"
+      ],
+      "output": "build.log",
+      "seconds": 119.58,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "Audit.lean"
+      ],
+      "output": "axioms.log",
+      "seconds": 77.05,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean",
+        "-DwarningAsError=true",
+        "review/Regression.lean"
+      ],
+      "output": "semantic-tests.log",
+      "seconds": 24.2,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Amplitude"
+      ],
+      "output": "replay-NullCone.Amplitude.log",
+      "seconds": 23.11,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Area"
+      ],
+      "output": "replay-NullCone.Area.log",
+      "seconds": 22.95,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Counterexample"
+      ],
+      "output": "replay-NullCone.Counterexample.log",
+      "seconds": 23.19,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Cutoffs"
+      ],
+      "output": "replay-NullCone.Cutoffs.log",
+      "seconds": 22.81,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Dilution"
+      ],
+      "output": "replay-NullCone.Dilution.log",
+      "seconds": 21.58,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Dimension"
+      ],
+      "output": "replay-NullCone.Dimension.log",
+      "seconds": 20.78,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Functional"
+      ],
+      "output": "replay-NullCone.Functional.log",
+      "seconds": 20.27,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Hilbert"
+      ],
+      "output": "replay-NullCone.Hilbert.log",
+      "seconds": 25.45,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.HilbertSchmidt"
+      ],
+      "output": "replay-NullCone.HilbertSchmidt.log",
+      "seconds": 21.19,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Limits"
+      ],
+      "output": "replay-NullCone.Limits.log",
+      "seconds": 25.05,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Model"
+      ],
+      "output": "replay-NullCone.Model.log",
+      "seconds": 24.06,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Perturbation"
+      ],
+      "output": "replay-NullCone.Perturbation.log",
+      "seconds": 19.42,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Projections"
+      ],
+      "output": "replay-NullCone.Projections.log",
+      "seconds": 22.88,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Response"
+      ],
+      "output": "replay-NullCone.Response.log",
+      "seconds": 22.7,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Series"
+      ],
+      "output": "replay-NullCone.Series.log",
+      "seconds": 19.06,
+      "exit": 0
+    },
+    {
+      "argv": [
+        "lake.EXE",
+        "env",
+        "lean4checker.exe",
+        "-v",
+        "NullCone.Trace"
+      ],
+      "output": "replay-NullCone.Trace.log",
+      "seconds": 19.06,
+      "exit": 0
+    }
+  ],
+  "axioms_used": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "semantic_tests": [
+    "SemanticProbe.five_matrix_element_limits",
+    "SemanticProbe.no_finite_matrix_element_net_limit",
+    "SemanticProbe.outside_projection_trace_bound",
+    "SemanticProbe.sampled_cubic_remainder_im",
+    "SemanticProbe.strong_projection_error",
+    "SemanticProbe.third_derivative_of_cutoff"
+  ],
+  "replay": true,
+  "utc_end": "2026-11-26T09:53:37.654500+00:00"
+}

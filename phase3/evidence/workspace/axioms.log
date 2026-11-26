@@ -1,0 +1,725 @@
+@NullCone.Model.diag_apply : ∀ {ι : Type u_1} (a : ι → ℂ) (ha : ∀ (i : ι), ‖a i‖ ≤ 1) (x : ↥(NullCone.Model.H ι))
+  (i : ι), ↑((NullCone.Model.diag a ha) x) i = a i * ↑x i
+'NullCone.Model.diag_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.perm_apply : ∀ {ι : Type u_1} (e : Equiv.Perm ι) (x : ↥(NullCone.Model.H ι)) (i : ι),
+  ↑((NullCone.Model.perm e) x) i = ↑x (e i)
+'NullCone.Model.perm_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.ket_inner : ∀ {ι : Type u_1} [inst : DecidableEq ι] (i : ι) (x : ↥(NullCone.Model.H ι)),
+  inner ℂ (NullCone.Model.ket i) x = ↑x i
+'NullCone.Model.ket_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.proj_apply : ∀ {ι : Type u_1} [inst : DecidableEq ι] (s : Finset ι) (x : ↥(NullCone.Model.H ι)) (i : ι),
+  ↑((NullCone.Model.proj s) x) i = if i ∈ s then ↑x i else 0
+'NullCone.Model.proj_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.proj_idem : ∀ {ι : Type u_1} [inst : DecidableEq ι] (s : Finset ι) (x : ↥(NullCone.Model.H ι)),
+  (NullCone.Model.proj s) ((NullCone.Model.proj s) x) = (NullCone.Model.proj s) x
+'NullCone.Model.proj_idem' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.proj_symmetric : ∀ {ι : Type u_1} [inst : DecidableEq ι] (s : Finset ι) (x y : ↥(NullCone.Model.H ι)),
+  inner ℂ ((NullCone.Model.proj s) x) y = inner ℂ x ((NullCone.Model.proj s) y)
+'NullCone.Model.proj_symmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.proj_eq_sum : ∀ {ι : Type u_1} [inst : DecidableEq ι] (s : Finset ι) (x : ↥(NullCone.Model.H ι)),
+  (NullCone.Model.proj s) x = ∑ i ∈ s, lp.single 2 i (↑x i)
+'NullCone.Model.proj_eq_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.proj_strong_of_cofinal : ∀ {ι : Type u_1} [inst : DecidableEq ι] {s : ℕ → Finset ι},
+  Filter.Tendsto s Filter.atTop Filter.atTop →
+    ∀ (x : ↥(NullCone.Model.H ι)), Filter.Tendsto (fun k => (NullCone.Model.proj (s k)) x) Filter.atTop (nhds x)
+'NullCone.Model.proj_strong_of_cofinal' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.area_apply : ∀ (x : ↥NullCone.Model.One) (i : NullCone.Model.Label),
+  ↑(NullCone.Model.area x) i = ↑(NullCone.Model.areaValue i) * ↑x i
+'NullCone.Model.area_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.area_symmetric : ∀ (x y : ↥NullCone.Model.One),
+  inner ℂ (NullCone.Model.area x) y = inner ℂ x (NullCone.Model.area y)
+'NullCone.Model.area_symmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.swap_swap : ∀ (i : NullCone.Model.Label), NullCone.Model.swap (NullCone.Model.swap i) = i
+'NullCone.Model.swap_swap' depends on axioms: [Quot.sound]
+NullCone.Model.flip_apply : ∀ (x : ↥NullCone.Model.One) (i : NullCone.Model.Label),
+  ↑(NullCone.Model.flip x) i = ↑x (NullCone.Model.swap i)
+'NullCone.Model.flip_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.observable_apply : ∀ (v : ↥NullCone.Model.Two) (i j : NullCone.Model.Label),
+  ↑(NullCone.Model.observable v) (i, j) = -↑v (NullCone.Model.swap i, NullCone.Model.swap j)
+'NullCone.Model.observable_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.flip_involution : ∀ (x : ↥NullCone.Model.One), NullCone.Model.flip (NullCone.Model.flip x) = x
+'NullCone.Model.flip_involution' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.observable_involution : ∀ (v : ↥NullCone.Model.Two),
+  NullCone.Model.observable (NullCone.Model.observable v) = v
+'NullCone.Model.observable_involution' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.observable_symmetric : ∀ (x y : ↥NullCone.Model.Two),
+  inner ℂ (NullCone.Model.observable x) y = inner ℂ x (NullCone.Model.observable y)
+'NullCone.Model.observable_symmetric' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.w_pos : 0 < NullCone.Model.w
+'NullCone.Model.w_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.q_sq : NullCone.Model.q * NullCone.Model.q = NullCone.Model.w
+'NullCone.Model.q_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.gaussian : ∀ (i : NullCone.Model.Label),
+  Real.exp (-NullCone.Model.areaValue i) * Real.exp (-(NullCone.Model.areaValue i - 3) ^ 2 / 2) = NullCone.Model.w
+'NullCone.Model.gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.cap_weight : ∀ (x y : ↥NullCone.Model.One),
+  inner ℂ (NullCone.Model.cap x) (NullCone.Model.cap y) = inner ℂ x (NullCone.Model.weight y)
+'NullCone.Model.cap_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.rightPhase_unit : ∀ (i : NullCone.Model.Label), ‖NullCone.Model.rightPhase i‖ = 1
+'NullCone.Model.rightPhase_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.boost_phase_from_area : ∀ (i : NullCone.Model.Label),
+  Complex.exp (Complex.I * ↑(NullCone.Model.areaValue i) / 2) =
+    Complex.exp (Complex.I / 2) * NullCone.Model.rightPhase i
+'NullCone.Model.boost_phase_from_area' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.boost_isometry : ∀ (v : ↥NullCone.Model.Two), ‖NullCone.Model.rightBoost v‖ = ‖v‖
+'NullCone.Model.boost_isometry' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.proj_area_commute : ∀ (s : Finset NullCone.Model.Label) (x : ↥NullCone.Model.One),
+  (NullCone.Model.proj s) (NullCone.Model.area x) = NullCone.Model.area ((NullCone.Model.proj s) x)
+'NullCone.Model.proj_area_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.proj_weight_commute : ∀ (s : Finset NullCone.Model.Label) (x : ↥NullCone.Model.One),
+  (NullCone.Model.proj s) (NullCone.Model.weight x) = NullCone.Model.weight ((NullCone.Model.proj s) x)
+'NullCone.Model.proj_weight_commute' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.packet_apply : ∀ (s : Finset NullCone.Model.Label) (a : NullCone.Model.Label → ℂ)
+  (i j : NullCone.Model.Label), ↑(NullCone.Model.packet s a) (i, j) = if i = j ∧ i ∈ s then a i else 0
+'NullCone.Model.packet_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.packet_inner : ∀ (s : Finset NullCone.Model.Label) (a : NullCone.Model.Label → ℂ)
+  (v : ↥NullCone.Model.Two), inner ℂ (NullCone.Model.packet s a) v = ∑ i ∈ s, (starRingEnd ℂ) (a i) * ↑v (i, i)
+'NullCone.Model.packet_inner' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.prepared_matrix : ∀ (s : Finset NullCone.Model.Label) (i j : NullCone.Model.Label),
+  ↑(NullCone.Model.prepared s) (i, j) =
+    inner ℂ (NullCone.Model.ket i) (NullCone.Model.cap ((NullCone.Model.proj s) (NullCone.Model.ket j)))
+'NullCone.Model.prepared_matrix' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.boost_packet : ∀ (s : Finset NullCone.Model.Label) (a : NullCone.Model.Label → ℂ),
+  NullCone.Model.rightBoost (NullCone.Model.packet s a) =
+    NullCone.Model.packet s fun i => NullCone.Model.rightPhase i * a i
+'NullCone.Model.boost_packet' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.delta_pos : 0 < NullCone.Model.delta
+'NullCone.Model.delta_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.area_polynomial : (NullCone.Model.area - 1) * (NullCone.Model.area - 3) = 0
+'NullCone.Model.area_polynomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.area_spectrum_subset : ∀ {s : ℝ}, s ∈ spectrum ℝ NullCone.Model.area → s = 1 ∨ s = 3
+'NullCone.Model.area_spectrum_subset' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.q_exp : NullCone.Model.q = Real.exp (-3 / 2)
+'NullCone.Model.q_exp' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.weight_is_gaussian : cfc NullCone.Model.gaussianWeight NullCone.Model.area = NullCone.Model.weight
+'NullCone.Model.weight_is_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.cap_is_gaussian : cfc NullCone.Model.gaussianCap NullCone.Model.area = NullCone.Model.cap
+'NullCone.Model.cap_is_gaussian' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.area_ket : ∀ (i : NullCone.Model.Label),
+  NullCone.Model.area (NullCone.Model.ket i) = ↑(NullCone.Model.areaValue i) • NullCone.Model.ket i
+'NullCone.Model.area_ket' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.ket_orthonormal : ∀ {ι : Type u_1} [inst : DecidableEq ι], Orthonormal ℂ NullCone.Model.ket
+'NullCone.Model.ket_orthonormal' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.model_infinite : ¬FiniteDimensional ℂ ↥NullCone.Model.One
+'NullCone.Model.model_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.model_open : ∀ (x y : ↥NullCone.Model.One),
+  HasSum (fun i => inner ℂ y (NullCone.Model.ket i) * inner ℂ (NullCone.Model.ket i) x) (inner ℂ y x) ∧
+    Summable fun i => ‖inner ℂ y (NullCone.Model.ket i) * inner ℂ (NullCone.Model.ket i) x‖
+'NullCone.Model.model_open' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.proj_range : ∀ {ι : Type u_1} [inst : DecidableEq ι] (s : Finset ι),
+  LinearMap.range ↑(NullCone.Model.proj s) = Submodule.span ℂ (Set.range fun i => NullCone.Model.ket ↑i)
+'NullCone.Model.proj_range' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.proj_finite_rank : ∀ {ι : Type u_1} [inst : DecidableEq ι] (s : Finset ι),
+  FiniteDimensional ℂ ↥(LinearMap.range ↑(NullCone.Model.proj s)) ∧
+    Module.finrank ℂ ↥(LinearMap.range ↑(NullCone.Model.proj s)) = s.card
+'NullCone.Model.proj_finite_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.proj_selfAdjoint : ∀ {ι : Type u_1} [inst : DecidableEq ι] (s : Finset ι),
+  IsSelfAdjoint (NullCone.Model.proj s)
+'NullCone.Model.proj_selfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.area_selfAdjoint : IsSelfAdjoint NullCone.Model.area
+'NullCone.Model.area_selfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.observable_selfAdjoint : IsSelfAdjoint NullCone.Model.observable
+'NullCone.Model.observable_selfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.cap_adjoint_cap : (ContinuousLinearMap.adjoint NullCone.Model.cap).comp NullCone.Model.cap =
+  NullCone.Model.weight
+'NullCone.Model.cap_adjoint_cap' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.weight_coercive : ∀ (x : ↥NullCone.Model.One),
+  (inner ℂ x (NullCone.Model.weight x)).re = NullCone.Model.w * ‖x‖ ^ 2
+'NullCone.Model.weight_coercive' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.rightBoost_unitary : Function.Surjective ⇑NullCone.Model.rightBoost ∧
+  ∀ (v : ↥NullCone.Model.Two), ‖NullCone.Model.rightBoost v‖ = ‖v‖
+'NullCone.Model.rightBoost_unitary' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.signed_is_matrix_element : ∀ (s : Finset NullCone.Model.Label),
+  NullCone.Model.signed s =
+    (inner ℂ (NullCone.Model.prepared s) (NullCone.Model.insertion (NullCone.Model.prepared s))).re
+'NullCone.Model.signed_is_matrix_element' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.flip_selfAdjoint : IsSelfAdjoint ↑NullCone.Model.flip.toContinuousLinearEquiv
+'NullCone.Model.flip_selfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.observable_norm_le_one : ‖NullCone.Model.observable‖ ≤ 1
+'NullCone.Model.observable_norm_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.insertion_selfAdjoint : IsSelfAdjoint NullCone.Model.insertion
+'NullCone.Model.insertion_selfAdjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.mass_labels : ∀ (r n : ℕ), NullCone.Model.mass (NullCone.Model.labels r n) = NullCone.Model.w * (↑r + ↑n)
+'NullCone.Model.mass_labels' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.change_labels : ∀ {r n : ℕ},
+  n ≤ r → NullCone.Model.change (NullCone.Model.labels r n) = 2 * NullCone.Model.w * NullCone.Model.delta * ↑n
+'NullCone.Model.change_labels' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.signed_labels : ∀ {r n : ℕ},
+  n ≤ r →
+    NullCone.Model.signed (NullCone.Model.labels r n) = NullCone.Model.w * NullCone.Model.delta * (3 * ↑n - ↑r) / 2
+'NullCone.Model.signed_labels' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.unitPacket_norm : ∀ (s : Finset NullCone.Model.Label),
+  0 < NullCone.Model.mass s → ‖NullCone.Model.unitPacket s‖ = 1
+'NullCone.Model.unitPacket_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.unitPacket_response : ∀ (s : Finset NullCone.Model.Label),
+  0 < NullCone.Model.mass s →
+    NullCone.Model.response (NullCone.Model.unitPacket s) = NullCone.Model.change s / NullCone.Model.mass s
+'NullCone.Model.unitPacket_response' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Model.normalized_labels : ∀ {r n : ℕ},
+  n ≤ r →
+    0 < r + n →
+      NullCone.Model.response (NullCone.Model.unitPacket (NullCone.Model.labels r n)) =
+        2 * ↑n * NullCone.Model.delta / (↑r + ↑n)
+'NullCone.Model.normalized_labels' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.reference_pair_norm : ‖NullCone.Model.referencePair‖ = 1
+'NullCone.Model.reference_pair_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.reference_pair_response : NullCone.Model.response NullCone.Model.referencePair = NullCone.Model.delta
+'NullCone.Model.reference_pair_response' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.right_le_left : ∀ (p : NullCone.Model.Route) (k : ℕ), k + 1 ≤ NullCone.Model.leftCount p k
+'NullCone.Model.right_le_left' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.stages_mono : ∀ (p : NullCone.Model.Route), Monotone (NullCone.Model.stages p)
+'NullCone.Model.stages_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.stages_cofinal : ∀ (p : NullCone.Model.Route),
+  Filter.Tendsto (NullCone.Model.stages p) Filter.atTop Filter.atTop
+'NullCone.Model.stages_cofinal' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.stages_strong : ∀ (p : NullCone.Model.Route) (x : ↥NullCone.Model.One),
+  Filter.Tendsto (fun k => (NullCone.Model.proj (NullCone.Model.stages p k)) x) Filter.atTop (nhds x)
+'NullCone.Model.stages_strong' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.stages_nested : ∀ (p : NullCone.Model.Route) {k l : ℕ},
+  k ≤ l →
+    ∀ (x : ↥NullCone.Model.One),
+      (NullCone.Model.proj (NullCone.Model.stages p l)) ((NullCone.Model.proj (NullCone.Model.stages p k)) x) =
+        (NullCone.Model.proj (NullCone.Model.stages p k)) x
+'NullCone.Model.stages_nested' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.rank_stages : ∀ (p : NullCone.Model.Route) (k : ℕ),
+  Module.finrank ℂ ↥(LinearMap.range ↑(NullCone.Model.proj (NullCone.Model.stages p k))) =
+    NullCone.Model.leftCount p k + (k + 1)
+'NullCone.Model.rank_stages' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.signed_by_route : ∀ (p : NullCone.Model.Route) (k : ℕ),
+  NullCone.Model.signed (NullCone.Model.stages p k) =
+    match p with
+    | NullCone.Model.Route.balanced => NullCone.Model.w * NullCone.Model.delta * (↑k + 1)
+    | NullCone.Model.Route.positive => NullCone.Model.w * NullCone.Model.delta
+    | NullCone.Model.Route.zero => 0
+    | NullCone.Model.Route.negative => -(NullCone.Model.w * NullCone.Model.delta)
+    | NullCone.Model.Route.dilute => -(2 * NullCone.Model.w * NullCone.Model.delta) * (↑k + 1)
+'NullCone.Model.signed_by_route' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.balanced_limit : Filter.Tendsto
+  (fun k => NullCone.Model.signed (NullCone.Model.stages NullCone.Model.Route.balanced k)) Filter.atTop Filter.atTop
+'NullCone.Model.balanced_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.positive_limit : Filter.Tendsto
+  (fun k => NullCone.Model.signed (NullCone.Model.stages NullCone.Model.Route.positive k)) Filter.atTop
+  (nhds (NullCone.Model.w * NullCone.Model.delta))
+'NullCone.Model.positive_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.zero_limit : Filter.Tendsto
+  (fun k => NullCone.Model.signed (NullCone.Model.stages NullCone.Model.Route.zero k)) Filter.atTop (nhds 0)
+'NullCone.Model.zero_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.negative_limit : Filter.Tendsto
+  (fun k => NullCone.Model.signed (NullCone.Model.stages NullCone.Model.Route.negative k)) Filter.atTop
+  (nhds (-(NullCone.Model.w * NullCone.Model.delta)))
+'NullCone.Model.negative_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.dilute_limit : Filter.Tendsto
+  (fun k => NullCone.Model.signed (NullCone.Model.stages NullCone.Model.Route.dilute k)) Filter.atTop Filter.atBot
+'NullCone.Model.dilute_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.reference_match : ∀ (k : ℕ),
+  NullCone.Model.signed (NullCone.Model.stages NullCone.Model.Route.positive k) =
+      NullCone.Model.signed (NullCone.Model.labels 1 1) ∧
+    0 < NullCone.Model.signed (NullCone.Model.stages NullCone.Model.Route.positive k)
+'NullCone.Model.reference_match' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.no_finite_cut_net_limit : ∀ (z : ℝ), ¬Filter.Tendsto NullCone.Model.signed Filter.atTop (nhds z)
+'NullCone.Model.no_finite_cut_net_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.weight_trace_infinite : NullCone.Trace.positiveTrace NullCone.Model.weight = ⊤
+'NullCone.Model.weight_trace_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.positive_route_normalized_limit : Filter.Tendsto
+  (fun k => NullCone.Model.response (NullCone.Model.unitPacket (NullCone.Model.stages NullCone.Model.Route.positive k)))
+  Filter.atTop (nhds (NullCone.Model.delta / 2))
+'NullCone.Model.positive_route_normalized_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Model.open_gluing_with_incompatible_closures : ¬FiniteDimensional ℂ ↥NullCone.Model.One ∧
+  (∀ (x y : ↥NullCone.Model.One),
+      HasSum (fun i => inner ℂ y (NullCone.Model.ket i) * inner ℂ (NullCone.Model.ket i) x) (inner ℂ y x) ∧
+        Summable fun i => ‖inner ℂ y (NullCone.Model.ket i) * inner ℂ (NullCone.Model.ket i) x‖) ∧
+    (∀ (p : NullCone.Model.Route) (x : ↥(NullCone.Model.H NullCone.Model.Label)),
+        Filter.Tendsto (fun k => (NullCone.Model.proj (NullCone.Model.stages p k)) x) Filter.atTop (nhds x)) ∧
+      (∀ (s : Finset NullCone.Model.Label),
+          NullCone.Model.signed s =
+            (inner ℂ (NullCone.Model.prepared s) (NullCone.Model.insertion (NullCone.Model.prepared s))).re) ∧
+        (∀ (k : ℕ),
+            NullCone.Model.signed (NullCone.Model.stages NullCone.Model.Route.positive k) =
+                NullCone.Model.signed (NullCone.Model.labels 1 1) ∧
+              0 < NullCone.Model.signed (NullCone.Model.stages NullCone.Model.Route.positive k)) ∧
+          Filter.Tendsto (fun k => NullCone.Model.signed (NullCone.Model.stages NullCone.Model.Route.dilute k))
+            Filter.atTop Filter.atBot
+'NullCone.Model.open_gluing_with_incompatible_closures' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.cutWeight_le_positiveTrace : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] (W : H →L[ℂ] H) {n : ℕ} {e : Fin n → H},
+  Orthonormal ℂ e → ENNReal.ofReal (NullCone.Trace.cutWeight W e) ≤ NullCone.Trace.positiveTrace W
+'NullCone.Trace.cutWeight_le_positiveTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.cutWeight_eq_trace_compression : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] (W : H →L[ℂ] H) (V : Submodule ℂ H) [inst_2 : FiniteDimensional ℂ ↥V] {n : ℕ}
+  (b : OrthonormalBasis (Fin n) ℂ ↥V),
+  (NullCone.Trace.cutWeight W fun i => ↑(b i)) =
+    ((LinearMap.trace ℂ ↥V) ↑(V.orthogonalProjection.comp (W.comp V.subtypeL))).re
+'NullCone.Trace.cutWeight_eq_trace_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.cutWeight_adjoint_comp_self : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] {K : Type u_2} [inst_3 : NormedAddCommGroup K]
+  [inst_4 : InnerProductSpace ℂ K] [inst_5 : CompleteSpace K] (C : H →L[ℂ] K) {n : ℕ} (e : Fin n → H),
+  NullCone.Trace.cutWeight ((ContinuousLinearMap.adjoint C).comp C) e = ∑ i, ‖C (e i)‖ ^ 2
+'NullCone.Trace.cutWeight_adjoint_comp_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.cutWeight_ge_rank : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (W : H →L[ℂ] H) {c : ℝ},
+  ↑c • 1 ≤ W → ∀ {n : ℕ} {e : Fin n → H}, Orthonormal ℂ e → c * ↑n ≤ NullCone.Trace.cutWeight W e
+'NullCone.Trace.cutWeight_ge_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.positiveTrace_eq_trace : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] [FiniteDimensional ℂ H] (W : H →L[ℂ] H),
+  W.IsPositive → NullCone.Trace.positiveTrace W = ENNReal.ofReal ((LinearMap.trace ℂ H) ↑W).re
+'NullCone.Trace.positiveTrace_eq_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.positiveTrace_eq_top_of_infinite_family : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (W : H →L[ℂ] H) {c : ℝ},
+  0 < c → ↑c • 1 ≤ W → ∀ {ι : Type u_2} [Infinite ι] {v : ι → H}, Orthonormal ℂ v → NullCone.Trace.positiveTrace W = ⊤
+'NullCone.Trace.positiveTrace_eq_top_of_infinite_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.finiteDimensional_of_positiveTrace_ne_top : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (W : H →L[ℂ] H) {c : ℝ},
+  0 < c → ↑c • 1 ≤ W → NullCone.Trace.positiveTrace W ≠ ⊤ → FiniteDimensional ℂ H
+'NullCone.Trace.finiteDimensional_of_positiveTrace_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.positiveTrace_ne_top_iff_finiteDimensional : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (W : H →L[ℂ] H) {c : ℝ},
+  0 < c → ↑c • 1 ≤ W → (NullCone.Trace.positiveTrace W ≠ ⊤ ↔ FiniteDimensional ℂ H)
+'NullCone.Trace.positiveTrace_ne_top_iff_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.open_matrix_elements : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  {ι : Type u_2} (b : HilbertBasis ι ℂ H) (x y : H),
+  HasSum (fun i => inner ℂ y (b i) * inner ℂ (b i) x) (inner ℂ y x) ∧
+    (Summable fun i => ‖inner ℂ y (b i) * inner ℂ (b i) x‖) ∧
+      ∑' (i : ι), ‖inner ℂ y (b i) * inner ℂ (b i) x‖ ≤ ‖y‖ * ‖x‖
+'NullCone.Trace.open_matrix_elements' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Trace.l2_open_and_closed : (∀ (x y : ↥(lp (fun i => ℂ) 2)),
+    HasSum (fun i => inner ℂ y (NullCone.Trace.sequenceBasis i) * inner ℂ (NullCone.Trace.sequenceBasis i) x)
+        (inner ℂ y x) ∧
+      Summable fun i => ‖inner ℂ y (NullCone.Trace.sequenceBasis i) * inner ℂ (NullCone.Trace.sequenceBasis i) x‖) ∧
+  NullCone.Trace.positiveTrace 1 = ⊤
+'NullCone.Trace.l2_open_and_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.signedClosure_le_neg_rank : ∀ {c δ T response : ℝ} (rank : ℕ),
+  0 < c → 0 < δ → c * ↑rank ≤ T → |response| ≤ δ / 4 → NullCone.Trace.signedClosure T response δ ≤ -(c * δ / 4) * ↑rank
+'NullCone.Trace.signedClosure_le_neg_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.signedCut_le_neg_rank : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (W : H →L[ℂ] H) {c δ response : ℝ},
+  0 < c →
+    0 < δ →
+      ↑c • 1 ≤ W →
+        ∀ {n : ℕ} {e : Fin n → H},
+          Orthonormal ℂ e →
+            |response| ≤ δ / 4 →
+              NullCone.Trace.signedClosure (NullCone.Trace.cutWeight W e) response δ ≤ -(c * δ / 4) * ↑n
+'NullCone.Trace.signedCut_le_neg_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.rank_bound_of_signed_lower : ∀ {ι : Type u_1} (rank : ι → ℕ) (T response : ι → ℝ) {c δ L : ℝ},
+  0 < c →
+    0 < δ →
+      (∀ (i : ι), c * ↑(rank i) ≤ T i) →
+        (∀ (i : ι), |response i| ≤ δ / 4) →
+          (∀ (i : ι), L ≤ NullCone.Trace.signedClosure (T i) (response i) δ) → ∀ (i : ι), ↑(rank i) ≤ -L / (c * δ / 4)
+'NullCone.Trace.rank_bound_of_signed_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.signedClosure_no_uniform_lower : ∀ {ι : Type u_1} (rank : ι → ℕ) (T response : ι → ℝ) {c δ : ℝ},
+  0 < c →
+    0 < δ →
+      (∀ (n : ℕ), ∃ i, n ≤ rank i) →
+        (∀ (i : ι), c * ↑(rank i) ≤ T i) →
+          (∀ (i : ι), |response i| ≤ δ / 4) → ¬∃ L, ∀ (i : ι), L ≤ NullCone.Trace.signedClosure (T i) (response i) δ
+'NullCone.Trace.signedClosure_no_uniform_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.signedClosure_tendsto_atBot : ∀ {ι : Type u_1} {l : Filter ι} (rank : ι → ℕ) (T response : ι → ℝ)
+  {c δ : ℝ},
+  0 < c →
+    0 < δ →
+      Filter.Tendsto rank l Filter.atTop →
+        (∀ᶠ (i : ι) in l, c * ↑(rank i) ≤ T i) →
+          (∀ᶠ (i : ι) in l, |response i| ≤ δ / 4) →
+            Filter.Tendsto (fun i => NullCone.Trace.signedClosure (T i) (response i) δ) l Filter.atBot
+'NullCone.Trace.signedClosure_tendsto_atBot' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Trace.signedClosure_no_finite_limit : ∀ {ι : Type u_1} {l : Filter ι} (rank : ι → ℕ) (T response : ι → ℝ)
+  {c δ : ℝ},
+  0 < c →
+    0 < δ →
+      (∀ (n : ℕ), ∃ᶠ (i : ι) in l, n ≤ rank i) →
+        (∀ᶠ (i : ι) in l, c * ↑(rank i) ≤ T i) →
+          (∀ᶠ (i : ι) in l, |response i| ≤ δ / 4) →
+            ∀ (a : ℝ), ¬Filter.Tendsto (fun i => NullCone.Trace.signedClosure (T i) (response i) δ) l (nhds a)
+'NullCone.Trace.signedClosure_no_finite_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.HilbertSchmidt.column_sum_basis_independent : ∀ {H : Type u_1} {K : Type u_2} {ι : Type u_3}
+  [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] [inst_2 : NormedAddCommGroup K]
+  [inst_3 : InnerProductSpace ℂ K] [CompleteSpace H] [CompleteSpace K] {ι' : Type u_4} (a : HilbertBasis ι ℂ H)
+  (b : HilbertBasis ι' ℂ H) (C : H →L[ℂ] K),
+  ∑' (i : ι), ENNReal.ofReal (‖C (a i)‖ ^ 2) = ∑' (j : ι'), ENNReal.ofReal (‖C (b j)‖ ^ 2)
+'NullCone.HilbertSchmidt.column_sum_basis_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.HilbertSchmidt.positiveTrace_gram_eq_column_sum : ∀ {H : Type u_1} {K : Type u_2} {ι : Type u_3}
+  [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] [inst_2 : NormedAddCommGroup K]
+  [inst_3 : InnerProductSpace ℂ K] [inst_4 : CompleteSpace H] [inst_5 : CompleteSpace K] (b : HilbertBasis ι ℂ H)
+  (C : H →L[ℂ] K),
+  NullCone.Trace.positiveTrace ((ContinuousLinearMap.adjoint C).comp C) = ∑' (i : ι), ENNReal.ofReal (‖C (b i)‖ ^ 2)
+'NullCone.HilbertSchmidt.positiveTrace_gram_eq_column_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.HilbertSchmidt.finite_trace_iff_hilbertSchmidt : ∀ {H : Type u_1} {K : Type u_2} {ι : Type u_3}
+  [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] [inst_2 : NormedAddCommGroup K]
+  [inst_3 : InnerProductSpace ℂ K] [inst_4 : CompleteSpace H] [inst_5 : CompleteSpace K] (b : HilbertBasis ι ℂ H)
+  (C : H →L[ℂ] K),
+  NullCone.Trace.positiveTrace ((ContinuousLinearMap.adjoint C).comp C) ≠ ⊤ ↔ Summable fun i => ‖C (b i)‖ ^ 2
+'NullCone.HilbertSchmidt.finite_trace_iff_hilbertSchmidt' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.HilbertSchmidt.positiveTrace_gram_eq_matrix_sum : ∀ {H : Type u_1} {K : Type u_2} {ι : Type u_3}
+  {κ : Type u_4} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] [inst_2 : NormedAddCommGroup K]
+  [inst_3 : InnerProductSpace ℂ K] [inst_4 : CompleteSpace H] [inst_5 : CompleteSpace K] (b : HilbertBasis ι ℂ H)
+  (d : HilbertBasis κ ℂ K) (C : H →L[ℂ] K),
+  NullCone.Trace.positiveTrace ((ContinuousLinearMap.adjoint C).comp C) =
+    ∑' (p : κ × ι), ENNReal.ofReal (‖inner ℂ (d p.1) (C (b p.2))‖ ^ 2)
+'NullCone.HilbertSchmidt.positiveTrace_gram_eq_matrix_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.HilbertSchmidt.finite_trace_iff_matrix_vector : ∀ {H : Type u_1} {K : Type u_2} {ι : Type u_3} {κ : Type u_4}
+  [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] [inst_2 : NormedAddCommGroup K]
+  [inst_3 : InnerProductSpace ℂ K] [inst_4 : CompleteSpace H] [inst_5 : CompleteSpace K] (b : HilbertBasis ι ℂ H)
+  (d : HilbertBasis κ ℂ K) (C : H →L[ℂ] K),
+  NullCone.Trace.positiveTrace ((ContinuousLinearMap.adjoint C).comp C) ≠ ⊤ ↔
+    NullCone.HilbertSchmidt.HasMatrixVector b d C
+'NullCone.HilbertSchmidt.finite_trace_iff_matrix_vector' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.HilbertSchmidt.finiteDimensional_iff_matrix_vector_of_lower : ∀ {H : Type u_1} {K : Type u_2} {ι : Type u_3}
+  {κ : Type u_4} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] [inst_2 : NormedAddCommGroup K]
+  [inst_3 : InnerProductSpace ℂ K] [inst_4 : CompleteSpace H] [inst_5 : CompleteSpace K] (b : HilbertBasis ι ℂ H)
+  (d : HilbertBasis κ ℂ K) (C : H →L[ℂ] K) {c : ℝ},
+  0 < c →
+    ↑c • 1 ≤ (ContinuousLinearMap.adjoint C).comp C →
+      (FiniteDimensional ℂ H ↔ NullCone.HilbertSchmidt.HasMatrixVector b d C)
+'NullCone.HilbertSchmidt.finiteDimensional_iff_matrix_vector_of_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@NullCone.HilbertSchmidt.positiveTrace_eq_vector_norm_sq : ∀ {H : Type u_1} {K : Type u_2} {ι : Type u_3} {κ : Type u_4}
+  [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] [inst_2 : NormedAddCommGroup K]
+  [inst_3 : InnerProductSpace ℂ K] [inst_4 : CompleteSpace H] [inst_5 : CompleteSpace K] (b : HilbertBasis ι ℂ H)
+  (d : HilbertBasis κ ℂ K) (C : H →L[ℂ] K) (v : ↥(lp (fun i => ℂ) 2)),
+  (∀ (p : κ × ι), ↑v p = inner ℂ (d p.1) (C (b p.2))) →
+    NullCone.Trace.positiveTrace ((ContinuousLinearMap.adjoint C).comp C) = ENNReal.ofReal (‖v‖ ^ 2)
+'NullCone.HilbertSchmidt.positiveTrace_eq_vector_norm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.HilbertSchmidt.normalized_matrix_iff : ∀ {H : Type u_1} {K : Type u_2} {ι : Type u_3} {κ : Type u_4}
+  [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H] [inst_2 : NormedAddCommGroup K]
+  [inst_3 : InnerProductSpace ℂ K] [inst_4 : CompleteSpace H] [inst_5 : CompleteSpace K] (b : HilbertBasis ι ℂ H)
+  (d : HilbertBasis κ ℂ K) (C : H →L[ℂ] K),
+  (∃ r u, 0 < r ∧ ‖u‖ = 1 ∧ ∀ (p : κ × ι), ↑r * ↑u p = inner ℂ (d p.1) (C (b p.2))) ↔
+    C ≠ 0 ∧ NullCone.Trace.positiveTrace ((ContinuousLinearMap.adjoint C).comp C) ≠ ⊤
+'NullCone.HilbertSchmidt.normalized_matrix_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Response.expectation_sub_le : ∀ {E : Type u_1} [inst : NormedAddCommGroup E] [inst_1 : InnerProductSpace ℂ E]
+  (O : E →L[ℂ] E) (u v : E), ‖u‖ = 1 → ‖v‖ = 1 → ‖inner ℂ u (O u) - inner ℂ v (O v)‖ ≤ 2 * ‖O‖ * ‖u - v‖
+'NullCone.Response.expectation_sub_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Response.phase_norm : ∀ (x : ℝ), ‖NullCone.Response.phase x‖ = 1
+'NullCone.Response.phase_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Response.phase_sub_one_le : ∀ (x : ℝ), ‖NullCone.Response.phase x - 1‖ ≤ |x|
+'NullCone.Response.phase_sub_one_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Response.integrated_phase_square_le : ∀ (μ : MeasureTheory.Measure ℝ) (t s₀ : ℝ),
+  MeasureTheory.Integrable (fun s => (s - s₀) ^ 2) μ →
+    MeasureTheory.Integrable (fun s => ‖NullCone.Response.phase (t * (s - s₀)) - 1‖ ^ 2) μ ∧
+      ∫ (s : ℝ), ‖NullCone.Response.phase (t * (s - s₀)) - 1‖ ^ 2 ∂μ ≤ t ^ 2 * ∫ (s : ℝ), (s - s₀) ^ 2 ∂μ
+'NullCone.Response.integrated_phase_square_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Response.rightBoost_apply : ∀ {α : Type u_1} {β : Type u_2} (area : β → ℝ) (t s₀ : ℝ)
+  (ψ : ↥(NullCone.Model.H (α × β))) (p : α × β),
+  ↑((NullCone.Response.rightBoost area t s₀) ψ) p = NullCone.Response.phase (t * (area p.2 - s₀)) * ↑ψ p
+'NullCone.Response.rightBoost_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Response.rightBoost_norm : ∀ {α : Type u_1} {β : Type u_2} (area : β → ℝ) (t s₀ : ℝ)
+  (ψ : ↥(NullCone.Model.H (α × β))), ‖(NullCone.Response.rightBoost area t s₀) ψ‖ = ‖ψ‖
+'NullCone.Response.rightBoost_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Response.boost_distance_sq_le : ∀ {α : Type u_1} {β : Type u_2} (area : β → ℝ) (t s₀ : ℝ)
+  (ψ : ↥(NullCone.Model.H (α × β))),
+  Summable (NullCone.Response.momentTerm area s₀ ψ) →
+    ‖(NullCone.Response.rightBoost area t s₀) ψ - ψ‖ ^ 2 ≤ t ^ 2 * NullCone.Response.secondMoment area s₀ ψ
+'NullCone.Response.boost_distance_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Response.rightBoost_uncentered : ∀ {α : Type u_1} {β : Type u_2} (area : β → ℝ) (t s₀ : ℝ)
+  (ψ : ↥(NullCone.Model.H (α × β))),
+  (NullCone.Response.rightBoost area t 0) ψ =
+    NullCone.Response.phase (t * s₀) • (NullCone.Response.rightBoost area t s₀) ψ
+'NullCone.Response.rightBoost_uncentered' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Response.boost_response_le : ∀ {α : Type u_1} {β : Type u_2} (area : β → ℝ) (η s₀ : ℝ)
+  (ψ : ↥(NullCone.Model.H (α × β))) (O : ↥(NullCone.Model.H (α × β)) →L[ℂ] ↥(NullCone.Model.H (α × β))),
+  ‖ψ‖ = 1 →
+    Summable (NullCone.Response.momentTerm area s₀ ψ) →
+      have U := NullCone.Response.rightBoost area (η / (2 * Real.pi)) 0;
+      ‖inner ℂ (U ψ) (O (U ψ)) - inner ℂ ψ (O ψ)‖ ≤ |η| / Real.pi * ‖O‖ * √(NullCone.Response.secondMoment area s₀ ψ)
+'NullCone.Response.boost_response_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.exists_infinite_band : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] {ι : Type u_2} [Finite ι] (V : ι → Submodule ℂ H),
+  (⨆ i, V i).topologicalClosure = ⊤ → ¬FiniteDimensional ℂ H → ∃ i, ¬FiniteDimensional ℂ ↥(V i)
+'NullCone.Dilution.exists_infinite_band' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.exists_band_extension : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] (E V : Submodule ℂ H) [FiniteDimensional ℂ ↥E],
+  ¬FiniteDimensional ℂ ↥V → ∀ (n : ℕ), ∃ z, Orthonormal ℂ z ∧ ∀ (j : Fin n), z j ∈ V ∧ z j ∈ Eᗮ
+'NullCone.Dilution.exists_band_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.exists_diluted_cut : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (E V : Submodule ℂ H) [FiniteDimensional ℂ ↥E],
+  ¬FiniteDimensional ℂ ↥V →
+    ∀ (n : ℕ),
+      ∃ e,
+        Orthonormal ℂ e ∧
+          E ≤ Submodule.span ℂ (Set.range e) ∧
+            Module.finrank ℂ ↥(Submodule.span ℂ (Set.range e)) = Module.finrank ℂ ↥E + n ∧
+              ∑ i, NullCone.Dilution.outsideMass V (e i) ≤ ↑(Module.finrank ℂ ↥E)
+'NullCone.Dilution.exists_diluted_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.outside_sum_basis_independent : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (V : Submodule ℂ H) {n : ℕ} {e : Fin n → H},
+  Orthonormal ℂ e →
+    ∀ (b : OrthonormalBasis (Fin n) ℂ ↥(Submodule.span ℂ (Set.range e))),
+      ∑ i, NullCone.Dilution.outsideMass V ↑(b i) = ∑ i, NullCone.Dilution.outsideMass V (e i)
+'NullCone.Dilution.outside_sum_basis_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.weighted_moment_le : ∀ {H : Type u_1} [inst : NormedAddCommGroup H] [inst_1 : InnerProductSpace ℂ H]
+  [inst_2 : CompleteSpace H] (V : Submodule ℂ H) {n k : ℕ},
+  0 < n →
+    ∀ {u : Fin n → H},
+      Orthonormal ℂ u →
+        ∀ (q : H → ℝ) (w : Fin n → ℝ) {c ε A : ℝ},
+          0 < c →
+            (∀ (i : Fin n), c ≤ w i ∧ w i ≤ 1) →
+              (∀ (x : H), ‖x‖ = 1 → q x ≤ ε ^ 2 + A ^ 2 * NullCone.Dilution.outsideMass V x) →
+                ∑ i, NullCone.Dilution.outsideMass V (u i) ≤ ↑k →
+                  (∑ i, w i * q (u i)) / ∑ i, w i ≤ ε ^ 2 + A ^ 2 * ↑k / (c * ↑n)
+'NullCone.Dilution.weighted_moment_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.exists_cut_fraction_and_moment : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (E V : Submodule ℂ H) [FiniteDimensional ℂ ↥E],
+  ¬FiniteDimensional ℂ ↥V →
+    ∀ (n : ℕ),
+      0 < n →
+        ∀ (q : H → ℝ) {c ε A : ℝ},
+          0 < c →
+            (∀ (x : H), ‖x‖ = 1 → q x ≤ ε ^ 2 + A ^ 2 * NullCone.Dilution.outsideMass V x) →
+              ∃ e,
+                Orthonormal ℂ e ∧
+                  E ≤ Submodule.span ℂ (Set.range e) ∧
+                    Module.finrank ℂ ↥(Submodule.span ℂ (Set.range e)) = Module.finrank ℂ ↥E + n ∧
+                      (∑ i, NullCone.Dilution.outsideMass V (e i)) / ↑(Module.finrank ℂ ↥E + n) ≤
+                          ↑(Module.finrank ℂ ↥E) / ↑(Module.finrank ℂ ↥E + n) ∧
+                        ∀ (b : OrthonormalBasis (Fin (Module.finrank ℂ ↥E + n)) ℂ ↥(Submodule.span ℂ (Set.range e)))
+                          (w : Fin (Module.finrank ℂ ↥E + n) → ℝ),
+                          (∀ (i : Fin (Module.finrank ℂ ↥E + n)), c ≤ w i ∧ w i ≤ 1) →
+                            (∑ i, w i * q ↑(b i)) / ∑ i, w i ≤
+                              ε ^ 2 + A ^ 2 * ↑(Module.finrank ℂ ↥E) / (c * ↑(Module.finrank ℂ ↥E + n))
+'NullCone.Dilution.exists_cut_fraction_and_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.spread_le_of_invariant_band : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (V : Submodule ℂ H) [CompleteSpace ↥V] (S : H →L[ℂ] H),
+  (↑S).IsSymmetric →
+    (∀ x ∈ V, S x ∈ V) →
+      ∀ {ε A : ℝ},
+        0 ≤ ε →
+          (∀ x ∈ V, ‖S x‖ ≤ ε * ‖x‖) →
+            ‖S‖ ≤ A → ∀ (x : H), ‖x‖ = 1 → ‖S x‖ ^ 2 ≤ ε ^ 2 + A ^ 2 * NullCone.Dilution.outsideMass V x
+'NullCone.Dilution.spread_le_of_invariant_band' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.compressed_weight_eigenbasis : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (P : Submodule ℂ H) [inst_3 : FiniteDimensional ℂ ↥P]
+  (W : H →L[ℂ] H) {n : ℕ},
+  Module.finrank ℂ ↥P = n →
+    ∀ {c : ℝ},
+      0 < c →
+        ↑c • 1 ≤ W →
+          W ≤ 1 →
+            ∃ b w,
+              (∀ (i : Fin n), (NullCone.Dilution.compressedWeight P W) (b i) = ↑(w i) • b i) ∧
+                ∀ (i : Fin n), c ≤ w i ∧ w i ≤ 1
+'NullCone.Dilution.compressed_weight_eigenbasis' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.normalizedMoment_eq_eigen_sum : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (P : Submodule ℂ H) [inst_3 : FiniteDimensional ℂ ↥P]
+  (W S : H →L[ℂ] H) {n : ℕ} (b : OrthonormalBasis (Fin n) ℂ ↥P) (w : Fin n → ℝ),
+  (∀ (i : Fin n), (NullCone.Dilution.compressedWeight P W) (b i) = ↑(w i) • b i) →
+    NullCone.Dilution.normalizedMoment P W S = (∑ i, w i * ‖S ↑(b i)‖ ^ 2) / ∑ i, w i
+'NullCone.Dilution.normalizedMoment_eq_eigen_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.exists_cut_operator_moment : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (E V : Submodule ℂ H) [FiniteDimensional ℂ ↥E]
+  [CompleteSpace ↥V],
+  ¬FiniteDimensional ℂ ↥V →
+    ∀ (n : ℕ),
+      0 < n →
+        ∀ (W S : H →L[ℂ] H) {c ε A : ℝ},
+          0 < c →
+            ↑c • 1 ≤ W →
+              W ≤ 1 →
+                (↑S).IsSymmetric →
+                  (∀ x ∈ V, S x ∈ V) →
+                    0 ≤ ε →
+                      (∀ x ∈ V, ‖S x‖ ≤ ε * ‖x‖) →
+                        ‖S‖ ≤ A →
+                          ∃ P,
+                            ∃ (x : FiniteDimensional ℂ ↥P),
+                              E ≤ P ∧
+                                Module.finrank ℂ ↥P = Module.finrank ℂ ↥E + n ∧
+                                  NullCone.Dilution.normalizedMoment P W S ≤
+                                    ε ^ 2 + A ^ 2 * ↑(Module.finrank ℂ ↥E) / (c * ↑(Module.finrank ℂ ↥E + n))
+'NullCone.Dilution.exists_cut_operator_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.exists_high_rank_operator_cut : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (E V : Submodule ℂ H) [FiniteDimensional ℂ ↥E]
+  [CompleteSpace ↥V],
+  ¬FiniteDimensional ℂ ↥V →
+    ∀ (N m : ℕ),
+      0 < m →
+        ∀ (W S : H →L[ℂ] H) {c ε A : ℝ},
+          0 < c →
+            ↑c • 1 ≤ W →
+              W ≤ 1 →
+                (↑S).IsSymmetric →
+                  (∀ x ∈ V, S x ∈ V) →
+                    0 ≤ ε →
+                      (∀ x ∈ V, ‖S x‖ ≤ ε * ‖x‖) →
+                        ‖S‖ ≤ A →
+                          ∃ P,
+                            ∃ (x : FiniteDimensional ℂ ↥P),
+                              E ≤ P ∧
+                                N ≤ Module.finrank ℂ ↥P ∧
+                                  NullCone.Dilution.normalizedMoment P W S ≤ ε ^ 2 + A ^ 2 / (↑m * c)
+'NullCone.Dilution.exists_high_rank_operator_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dilution.finiteDimensional_of_band_cover_and_closing : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] {ι : Type u_2} [Finite ι] (V : ι → Submodule ℂ H)
+  [∀ (j : ι), CompleteSpace ↥(V j)],
+  (⨆ j, V j).topologicalClosure = ⊤ →
+    ∀ (W : H →L[ℂ] H) (S : ι → H →L[ℂ] H) (D : Submodule ℂ H → ℝ) {c δ K ε A : ℝ},
+      0 < c →
+        0 < δ →
+          0 ≤ K →
+            0 ≤ ε →
+              ∀ (m : ℕ),
+                0 < m →
+                  K * √(ε ^ 2 + A ^ 2 / (↑m * c)) ≤ δ / 4 →
+                    ↑c • 1 ≤ W →
+                      W ≤ 1 →
+                        (∀ (j : ι), (↑(S j)).IsSymmetric) →
+                          (∀ (j : ι), ∀ x ∈ V j, (S j) x ∈ V j) →
+                            (∀ (j : ι), ∀ x ∈ V j, ‖(S j) x‖ ≤ ε * ‖x‖) →
+                              (∀ (j : ι), ‖S j‖ ≤ A) →
+                                (∀ (j : ι) (P : Submodule ℂ H) [inst_5 : FiniteDimensional ℂ ↥P],
+                                    0 < Module.finrank ℂ ↥P →
+                                      |D P| ≤ K * √(NullCone.Dilution.normalizedMoment P W (S j))) →
+                                  ∀ (E : Submodule ℂ H) [FiniteDimensional ℂ ↥E] (L : ℝ),
+                                    (∀ (P : Submodule ℂ H) [inst_6 : FiniteDimensional ℂ ↥P],
+                                        E ≤ P →
+                                          0 < Module.finrank ℂ ↥P →
+                                            |D P| ≤ δ / 4 →
+                                              L ≤
+                                                NullCone.Trace.signedClosure
+                                                  ((LinearMap.trace ℂ ↥P) ↑(NullCone.Dilution.compressedWeight P W)).re
+                                                  (D P) δ) →
+                                      FiniteDimensional ℂ H
+'NullCone.Dilution.finiteDimensional_of_band_cover_and_closing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@NullCone.Dimension.exists_orthonormal_fin : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [CompleteSpace H], ¬FiniteDimensional ℂ H → ∀ (n : ℕ), ∃ v, Orthonormal ℂ v
+'NullCone.Dimension.exists_orthonormal_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dimension.finiteDimensional_of_cofinal_small_cuts : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] {ι : Type u_2} (W : H →L[ℂ] H) (rank : ι → ℕ)
+  (e : (i : ι) → Fin (rank i) → H),
+  (∀ (i : ι), Orthonormal ℂ (e i)) →
+    ∀ (response : ι → ℝ) {c δ : ℝ},
+      0 < c →
+        0 < δ →
+          ↑c • 1 ≤ W →
+            ∀ {L : ℝ},
+              (∀ (n : ℕ) (v : Fin n → H), Orthonormal ℂ v → ∃ i, n ≤ rank i ∧ |response i| ≤ δ / 4) →
+                (∀ (i : ι),
+                    |response i| ≤ δ / 4 →
+                      L ≤ NullCone.Trace.signedClosure (NullCone.Trace.cutWeight W (e i)) (response i) δ) →
+                  FiniteDimensional ℂ H
+'NullCone.Dimension.finiteDimensional_of_cofinal_small_cuts' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dimension.finiteDimensional_of_cofinal_small_cuts_limit : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] {ι : Type u_2} (W : H →L[ℂ] H) (rank : ι → ℕ)
+  (e : (i : ι) → Fin (rank i) → H),
+  (∀ (i : ι), Orthonormal ℂ (e i)) →
+    ∀ (response : ι → ℝ) {c δ : ℝ},
+      0 < c →
+        0 < δ →
+          ↑c • 1 ≤ W →
+            ∀ {l : Filter ι} {a : ℝ},
+              (∀ (n : ℕ) (v : Fin n → H), Orthonormal ℂ v → ∃ᶠ (i : ι) in l, n ≤ rank i ∧ |response i| ≤ δ / 4) →
+                Filter.Tendsto (fun i => NullCone.Trace.signedClosure (NullCone.Trace.cutWeight W (e i)) (response i) δ)
+                    l (nhds a) →
+                  FiniteDimensional ℂ H
+'NullCone.Dimension.finiteDimensional_of_cofinal_small_cuts_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+@NullCone.Dimension.exists_narrow_band_parameters : ∀ {K A c δ : ℝ},
+  0 ≤ K → 0 < c → 0 < δ → ∃ width m, 0 < width ∧ 2 ≤ m ∧ ∀ q ≤ width ^ 2 + A ^ 2 / (↑m * c), K * √q ≤ δ / 4
+'NullCone.Dimension.exists_narrow_band_parameters' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dimension.finiteDimensional_of_narrow_band_cuts : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] {ι : Type u_2} (W : H →L[ℂ] H) (rank : ι → ℕ)
+  (e : (i : ι) → Fin (rank i) → H),
+  (∀ (i : ι), Orthonormal ℂ (e i)) →
+    ∀ (response : ι → ℝ) {c δ : ℝ},
+      0 < c →
+        0 < δ →
+          ↑c • 1 ≤ W →
+            ∀ (moment : ι → ℝ) (width A : ℝ) (m : ℕ) {K L : ℝ},
+              0 ≤ K →
+                0 < width ∧ 2 ≤ m ∧ K * √(width ^ 2 + A ^ 2 / (↑m * c)) ≤ δ / 4 →
+                  (∀ (i : ι), |response i| ≤ K * √(moment i)) →
+                    (¬FiniteDimensional ℂ H →
+                        ∀ (n : ℕ) (v : Fin n → H),
+                          Orthonormal ℂ v → ∃ i, n ≤ rank i ∧ moment i ≤ width ^ 2 + A ^ 2 / (↑m * c)) →
+                      (∀ (i : ι),
+                          |response i| ≤ δ / 4 →
+                            L ≤ NullCone.Trace.signedClosure (NullCone.Trace.cutWeight W (e i)) (response i) δ) →
+                        FiniteDimensional ℂ H
+'NullCone.Dimension.finiteDimensional_of_narrow_band_cuts' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Dimension.finiteDimensional_of_narrow_band_limit : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] {ι : Type u_2} (W : H →L[ℂ] H) (rank : ι → ℕ)
+  (e : (i : ι) → Fin (rank i) → H),
+  (∀ (i : ι), Orthonormal ℂ (e i)) →
+    ∀ (response : ι → ℝ) {c δ : ℝ},
+      0 < c →
+        0 < δ →
+          ↑c • 1 ≤ W →
+            ∀ (moment : ι → ℝ) (width A : ℝ) (m : ℕ) {K a : ℝ} {l : Filter ι},
+              0 ≤ K →
+                0 < width ∧ 2 ≤ m ∧ K * √(width ^ 2 + A ^ 2 / (↑m * c)) ≤ δ / 4 →
+                  (∀ (i : ι), |response i| ≤ K * √(moment i)) →
+                    (¬FiniteDimensional ℂ H →
+                        ∀ (n : ℕ) (v : Fin n → H),
+                          Orthonormal ℂ v → ∃ᶠ (i : ι) in l, n ≤ rank i ∧ moment i ≤ width ^ 2 + A ^ 2 / (↑m * c)) →
+                      Filter.Tendsto
+                          (fun i => NullCone.Trace.signedClosure (NullCone.Trace.cutWeight W (e i)) (response i) δ) l
+                          (nhds a) →
+                        FiniteDimensional ℂ H
+'NullCone.Dimension.finiteDimensional_of_narrow_band_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Functional.cutProjection_isStarProjection : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] {n : ℕ} (e : Fin n → H),
+  IsStarProjection (NullCone.Functional.cutProjection e)
+'NullCone.Functional.cutProjection_isStarProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Functional.positiveTrace_le_functional_one : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (W : H →L[ℂ] H) (ζ : (H →L[ℂ] H) →ₗ[ℂ] ℂ),
+  NullCone.Functional.IsPositiveFunctional ζ →
+    NullCone.Functional.AgreesOnFiniteCuts ζ W → NullCone.Trace.positiveTrace W ≤ ENNReal.ofReal (ζ 1).re
+'NullCone.Functional.positiveTrace_le_functional_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+@NullCone.Functional.finiteDimensional_of_weighted_functional : ∀ {H : Type u_1} [inst : NormedAddCommGroup H]
+  [inst_1 : InnerProductSpace ℂ H] [inst_2 : CompleteSpace H] (W : H →L[ℂ] H) {c : ℝ},
+  0 < c →
+    ↑c • 1 ≤ W →
+      ∀ (ζ : (H →L[ℂ] H) →ₗ[ℂ] ℂ),
+        NullCone.Functional.IsPositiveFunctional ζ → NullCone.Functional.AgreesOnFiniteCuts ζ W → FiniteDimensional ℂ H
+'NullCone.Functional.finiteDimensional_of_weighted_functional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+NullCone.Series.mode_norm : ∀ (x : ℝ) (n : ℕ), ‖NullCone.Series.mode x n‖ = 1 / (↑n + 1) ^ 2
+'NullCone.Series.mode_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Series.amplitude_absolute_sum : ∀ (x : ℝ),
+  HasSum (fun n => ‖↑x ^ 2 / 2 * NullCone.Series.mode x n‖) (Real.pi ^ 2 * x ^ 2 / 12)
+'NullCone.Series.amplitude_absolute_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Series.cutoff_tendsto : ∀ (x : ℝ),
+  Filter.Tendsto (fun N => NullCone.Series.cutoff N x) Filter.atTop (nhds (NullCone.Series.amplitude x))
+'NullCone.Series.cutoff_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Series.dilogSeries_absolute : ∀ (z : ℂ), ‖z‖ ≤ 1 → Summable fun n => ‖z ^ (n + 1) / (↑n + 1) ^ 2‖
+'NullCone.Series.dilogSeries_absolute' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Series.amplitude_eq_dilog : ∀ (x : ℝ),
+  NullCone.Series.amplitude x = ↑x ^ 2 / 2 * NullCone.Series.dilogSeries (Complex.exp (-2 * Complex.I * ↑x))
+'NullCone.Series.amplitude_eq_dilog' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Series.amplitude_tail_le : ∀ (x : ℝ) (N : ℕ),
+  0 < N → ‖NullCone.Series.amplitude x - NullCone.Series.cutoff N x‖ ≤ x ^ 2 / (2 * ↑N)
+'NullCone.Series.amplitude_tail_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Series.cutoff_cubic : ∀ (N : ℕ), iteratedDeriv 3 (NullCone.Series.cutoff N) 0 / 6 = -Complex.I * ↑(harmonic N)
+'NullCone.Series.cutoff_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Series.cutoff_cubic_scaled : ∀ (N : ℕ) (c G : ℝ),
+  ↑G ^ 3 / 6 * iteratedDeriv 3 (fun g => NullCone.Series.cutoff N (c * g)) 0 = -Complex.I * ↑(c * G) ^ 3 * ↑(harmonic N)
+'NullCone.Series.cutoff_cubic_scaled' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Series.cubic_log_limit : Filter.Tendsto
+  (fun N => -(iteratedDeriv 3 (NullCone.Series.cutoff N) 0 / 6).im - Real.log ↑N) Filter.atTop
+  (nhds Real.eulerMascheroniConstant)
+'NullCone.Series.cubic_log_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Series.cubic_diverges : Filter.Tendsto (fun N => -(iteratedDeriv 3 (NullCone.Series.cutoff N) 0 / 6).im)
+  Filter.atTop Filter.atTop
+'NullCone.Series.cubic_diverges' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Series.cubic_no_finite_limit : ∀ (z : ℂ),
+  ¬Filter.Tendsto (fun N => iteratedDeriv 3 (NullCone.Series.cutoff N) 0 / 6) Filter.atTop (nhds z)
+'NullCone.Series.cubic_no_finite_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Perturbation.amplitude_quadratic_limit : Filter.Tendsto (fun x => NullCone.Series.amplitude x / ↑x ^ 2)
+  (nhdsWithin 0 {0}ᶜ) (nhds ↑(Real.pi ^ 2 / 12))
+'NullCone.Perturbation.amplitude_quadratic_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Perturbation.amplitude_im_cubic_atBot : Filter.Tendsto (fun x => (NullCone.Series.amplitude x).im / x ^ 3)
+  (nhdsWithin 0 (Set.Ioi 0)) Filter.atBot
+'NullCone.Perturbation.amplitude_im_cubic_atBot' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Perturbation.amplitude_im_cubic_sequence : Filter.Tendsto
+  (fun N => (NullCone.Series.amplitude (1 / (2 * ↑N))).im / (1 / (2 * ↑N)) ^ 3) Filter.atTop Filter.atBot
+'NullCone.Perturbation.amplitude_im_cubic_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+NullCone.Perturbation.amplitude_no_cubic_coefficient : ∀ (c : ℂ),
+  ¬Filter.Tendsto (fun x => (NullCone.Series.amplitude x - ↑(Real.pi ^ 2 / 12 * x ^ 2)) / ↑(x ^ 3))
+      (nhdsWithin 0 (Set.Ioi 0)) (nhds c)
+'NullCone.Perturbation.amplitude_no_cubic_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]

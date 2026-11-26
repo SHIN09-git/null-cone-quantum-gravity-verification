@@ -1,0 +1,103 @@
+ℹ [7351/7368] Built NullCone.Trace (20s)
+info: NullCone/Trace.lean:244:0: 'NullCone.Trace.cutWeight_le_positiveTrace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:245:0: 'NullCone.Trace.cutWeight_eq_trace_compression' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:246:0: 'NullCone.Trace.cutWeight_adjoint_comp_self' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:247:0: 'NullCone.Trace.cutWeight_ge_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:248:0: 'NullCone.Trace.positiveTrace_eq_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:249:0: 'NullCone.Trace.positiveTrace_eq_top_of_infinite_family' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:250:0: 'NullCone.Trace.finiteDimensional_of_positiveTrace_ne_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:251:0: 'NullCone.Trace.positiveTrace_ne_top_iff_finiteDimensional' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:252:0: 'NullCone.Trace.open_matrix_elements' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:253:0: 'NullCone.Trace.l2_open_and_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:254:0: 'NullCone.Trace.signedClosure_le_neg_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:255:0: 'NullCone.Trace.signedCut_le_neg_rank' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:256:0: 'NullCone.Trace.rank_bound_of_signed_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:257:0: 'NullCone.Trace.signedClosure_no_uniform_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:258:0: 'NullCone.Trace.signedClosure_tendsto_atBot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Trace.lean:259:0: 'NullCone.Trace.signedClosure_no_finite_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [7352/7368] Built NullCone.Series (21s)
+info: NullCone/Series.lean:231:0: 'NullCone.Series.mode_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Series.lean:232:0: 'NullCone.Series.amplitude_absolute_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Series.lean:233:0: 'NullCone.Series.cutoff_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Series.lean:234:0: 'NullCone.Series.dilogSeries_absolute' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Series.lean:235:0: 'NullCone.Series.amplitude_eq_dilog' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Series.lean:236:0: 'NullCone.Series.amplitude_tail_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Series.lean:237:0: 'NullCone.Series.cutoff_cubic' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Series.lean:238:0: 'NullCone.Series.cutoff_cubic_scaled' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Series.lean:239:0: 'NullCone.Series.cubic_log_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Series.lean:240:0: 'NullCone.Series.cubic_diverges' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Series.lean:241:0: 'NullCone.Series.cubic_no_finite_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [7353/7368] Built NullCone.Hilbert (24s)
+ℹ [7354/7368] Built NullCone.Functional (14s)
+info: NullCone/Functional.lean:61:0: 'NullCone.Functional.cutProjection_isStarProjection' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Functional.lean:62:0: 'NullCone.Functional.positiveTrace_le_functional_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Functional.lean:63:0: 'NullCone.Functional.finiteDimensional_of_weighted_functional' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+ℹ [7355/7368] Built NullCone.Dimension (17s)
+info: NullCone/Dimension.lean:144:0: 'NullCone.Dimension.exists_orthonormal_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dimension.lean:145:0: 'NullCone.Dimension.finiteDimensional_of_cofinal_small_cuts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dimension.lean:146:0: 'NullCone.Dimension.finiteDimensional_of_cofinal_small_cuts_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: NullCone/Dimension.lean:147:0: 'NullCone.Dimension.exists_narrow_band_parameters' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dimension.lean:148:0: 'NullCone.Dimension.finiteDimensional_of_narrow_band_cuts' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dimension.lean:149:0: 'NullCone.Dimension.finiteDimensional_of_narrow_band_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [7356/7368] Built NullCone.Perturbation (18s)
+info: NullCone/Perturbation.lean:152:0: 'NullCone.Perturbation.amplitude_quadratic_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Perturbation.lean:153:0: 'NullCone.Perturbation.amplitude_im_cubic_atBot' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Perturbation.lean:154:0: 'NullCone.Perturbation.amplitude_im_cubic_sequence' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Perturbation.lean:155:0: 'NullCone.Perturbation.amplitude_no_cubic_coefficient' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [7357/7368] Built NullCone.HilbertSchmidt (22s)
+info: NullCone/HilbertSchmidt.lean:192:0: 'NullCone.HilbertSchmidt.column_sum_basis_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/HilbertSchmidt.lean:193:0: 'NullCone.HilbertSchmidt.positiveTrace_gram_eq_column_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/HilbertSchmidt.lean:194:0: 'NullCone.HilbertSchmidt.finite_trace_iff_hilbertSchmidt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/HilbertSchmidt.lean:195:0: 'NullCone.HilbertSchmidt.positiveTrace_gram_eq_matrix_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/HilbertSchmidt.lean:196:0: 'NullCone.HilbertSchmidt.finite_trace_iff_matrix_vector' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/HilbertSchmidt.lean:197:0: 'NullCone.HilbertSchmidt.finiteDimensional_iff_matrix_vector_of_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: NullCone/HilbertSchmidt.lean:198:0: 'NullCone.HilbertSchmidt.positiveTrace_eq_vector_norm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/HilbertSchmidt.lean:199:0: 'NullCone.HilbertSchmidt.normalized_matrix_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [7358/7368] Built NullCone.Model (22s)
+ℹ [7359/7368] Built NullCone.Response (22s)
+info: NullCone/Response.lean:159:0: 'NullCone.Response.expectation_sub_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Response.lean:160:0: 'NullCone.Response.phase_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Response.lean:161:0: 'NullCone.Response.phase_sub_one_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Response.lean:162:0: 'NullCone.Response.integrated_phase_square_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Response.lean:163:0: 'NullCone.Response.rightBoost_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Response.lean:164:0: 'NullCone.Response.rightBoost_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Response.lean:165:0: 'NullCone.Response.boost_distance_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Response.lean:166:0: 'NullCone.Response.rightBoost_uncentered' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Response.lean:167:0: 'NullCone.Response.boost_response_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [7360/7368] Built NullCone.Dilution (24s)
+info: NullCone/Dilution.lean:387:0: 'NullCone.Dilution.exists_infinite_band' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dilution.lean:388:0: 'NullCone.Dilution.exists_band_extension' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dilution.lean:389:0: 'NullCone.Dilution.exists_diluted_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dilution.lean:390:0: 'NullCone.Dilution.outside_sum_basis_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dilution.lean:391:0: 'NullCone.Dilution.weighted_moment_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dilution.lean:392:0: 'NullCone.Dilution.exists_cut_fraction_and_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dilution.lean:393:0: 'NullCone.Dilution.spread_le_of_invariant_band' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dilution.lean:394:0: 'NullCone.Dilution.compressed_weight_eigenbasis' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dilution.lean:395:0: 'NullCone.Dilution.normalizedMoment_eq_eigen_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dilution.lean:396:0: 'NullCone.Dilution.exists_cut_operator_moment' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dilution.lean:397:0: 'NullCone.Dilution.exists_high_rank_operator_cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Dilution.lean:398:0: 'NullCone.Dilution.finiteDimensional_of_band_cover_and_closing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+✔ [7361/7368] Built NullCone.Cutoffs (16s)
+✔ [7362/7368] Built NullCone.Projections (19s)
+ℹ [7363/7368] Built NullCone.Amplitude (21s)
+info: NullCone/Amplitude.lean:120:0: 'NullCone.Model.mass_labels' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Amplitude.lean:121:0: 'NullCone.Model.change_labels' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Amplitude.lean:122:0: 'NullCone.Model.signed_labels' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Amplitude.lean:123:0: 'NullCone.Model.unitPacket_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Amplitude.lean:124:0: 'NullCone.Model.unitPacket_response' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Amplitude.lean:125:0: 'NullCone.Model.normalized_labels' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Amplitude.lean:126:0: 'NullCone.Model.reference_pair_norm' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: NullCone/Amplitude.lean:127:0: 'NullCone.Model.reference_pair_response' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [7364/7368] Built NullCone.Limits (16s)
+✔ [7365/7368] Built NullCone.Area (19s)
+✔ [7366/7368] Built NullCone.Counterexample (14s)
+✔ [7367/7368] Built NullCone (13s)
+Build completed successfully (7368 jobs).

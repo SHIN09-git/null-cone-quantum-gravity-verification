@@ -1,0 +1,6 @@
+'SemanticProbe.five_matrix_element_limits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SemanticProbe.no_finite_matrix_element_net_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SemanticProbe.strong_projection_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SemanticProbe.third_derivative_of_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SemanticProbe.sampled_cubic_remainder_im' depends on axioms: [propext, Classical.choice, Quot.sound]
+'SemanticProbe.outside_projection_trace_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

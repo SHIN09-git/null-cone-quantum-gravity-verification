@@ -1,0 +1,5 @@
+✖ [2/2] Running proofwidgets:release
+error: failed to fetch GitHub release (run with '-v' for details)
+Some required targets logged failures:
+- proofwidgets:release
+error: build failed

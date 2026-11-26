@@ -1,0 +1,33 @@
+{
+  "baseline": "44df2c1e4915c0e654dd5907d91b775e83f31326",
+  "kernel_replay_source": "https://github.com/leanprover/lean4checker",
+  "kernel_replay_commit": "da26eb05e9959402afcb9bd6dfe5dc4f700f70d6",
+  "tested_platform": "Windows x86_64; Lean x86_64-w64-windows-gnu",
+  "local_checker_exe_sha256": "8ba83cd65a76c2ae2feb95dba71241368c3c50145881247cb12b21c3c7dafafc",
+  "local_lean_exe_sha256": "20bc808248e38cf072f84f4eb389f8f98e5925d703bcbfa400d9dd44f310c4db",
+  "verified_input_sha256": {
+    "NullCone/Amplitude.lean": "b173ed17d08ed42d11a1f5452ddf90aeb104c13ee485551620e635666cbe2b5d",
+    "NullCone/Area.lean": "da968391e14bd5b380983bdb98f5ba884245560535ab53cc67707a01173b5618",
+    "NullCone/Counterexample.lean": "4b88f1f75bad3ed3b1bd28efea0cc9288902337a4cac9fae4d5820a18272bcc3",
+    "NullCone/Cutoffs.lean": "6266110446616291023fe8b9bca55f52b7b5281deb1f46ac473a009e89cab20b",
+    "NullCone/Dilution.lean": "25c5e2aa8ffdedfeafb53020ee2ae01b108fd7955fb0526ec8c6f388a776f7b8",
+    "NullCone/Dimension.lean": "0379f83c22fd8f07b4b220375701cbf5684be3a4d693ebff95b060963fdde7e8",
+    "NullCone/Functional.lean": "f36e8f1a020e1121e7bdc746d7cb162e0323af60973eaceea1b05a7591758dd5",
+    "NullCone/Hilbert.lean": "7a7abc34de6097d6837d0b17e256e93aa28148920560a1a88a0bae541343699d",
+    "NullCone/HilbertSchmidt.lean": "4a4486be5a57cc1bbbd427ab7fe71a7cd8ca8ac494e644fe3f9f67e1e2fe1861",
+    "NullCone/Limits.lean": "4ac7e4dc201f1a1da4d16a50c6471b37dd3ccb2985c7b2a86d0ffdbec17b44b6",
+    "NullCone/Model.lean": "58ce18cb553e83b3e5e265376b92ecf73ef1746e44a50fe5867631db160d293f",
+    "NullCone/Perturbation.lean": "2d4c0e2c15748db435ce3b77b457fabff5a2e879901ab30b7cb7773cd4aa7ad1",
+    "NullCone/Projections.lean": "1dbc81857940f9a33e26799e529c2274b2dcc08b971e2b5a8b4666a6143e62bb",
+    "NullCone/Response.lean": "268bd3520234cfa5c8026219950a56713b8227e4b77afa80234c0a8a6342b897",
+    "NullCone/Series.lean": "e08e62a0823ca75758448a64179b878701608419358e66238ab759105aafe255",
+    "NullCone/Trace.lean": "30621eea36ea816dc698fbf0101e8b211c863c6f2b49e58ce547d50373588af2",
+    "NullCone.lean": "2d2ad03ba2f8876f29276840bc9369824297d875afb3f265a245b7e5059d5cf2",
+    "Audit.lean": "7bd20221c1fce22567e47faeb78f4b600f3ab319a96ccfa6e5b32f311ab667db",
+    "review/Regression.lean": "192025b9bcf5a1e78621b64e87adc2aac67ba9359e42efe41f3bd872e22b8211",
+    "lean-toolchain": "42779d67b81608af8a12aa4328d2ab47ca201925b3b2bd68369587b5340bb434",
+    "lakefile.toml": "161374dcf2074b369f8a2315aa642430664762f109cdb9ed03d1be2a017329fe",
+    "lake-manifest.json": "f84c9ef6c2ae3ce7a61ee2ee0d1a70474c0ec7952f871c55c7297758911a38d8",
+    "verify.py": "b658405ef7ebcbc6cb94efcbf1443a2ea8604c7d973e021c4b4505f7e3edf9e3"
+  }
+}

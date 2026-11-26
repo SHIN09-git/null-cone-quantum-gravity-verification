@@ -1,0 +1,16 @@
+python reproduce.py --phase 1 --out <fresh-output-1> --compare
+symbolic exit 0
+numerical exit 0
+tests exit 0
+independent exit 0
+All output files match the baseline byte for byte.
+
+python reproduce.py --phase 2 --out <fresh-output-2> --compare
+cut-algebra exit 0
+cut-numeric exit 0
+paired-check exit 0
+recheck-algebra exit 0
+recheck-numeric exit 0
+tests exit 0
+All output files match the baseline byte for byte.
+
