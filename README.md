@@ -15,6 +15,8 @@ What allows the resolution of the identity between two fixed states in (4.29) to
 
 OpenAI Codex performed the analysis and computations. Separate AI contexts challenged the derivations. No external specialist review or signed human line-by-line review of this audit is documented. The public record includes the proofs, 14 tests and 96 numerical records for this phase. [中文全篇复核](phase2/REPORT_CN.md) · [Review and reproducibility](phase2/REPRODUCIBILITY.md)
 
+A follow-up construction holds both band ranks and the Gaussian mass fixed across the five cutoffs at each stage. The signed closure values still disagree. The supplement includes a Lean proof and a replay with the original complex operator. To reproduce the published v0.2.0 archive, use its release tag. [Equal-rank cutoffs](phase2/supplements/equal_rank/README.md) · [Prove2Me mission](https://prove2.me/missions/Algebraic_quantization_of_gravity_from_the_null_cone/resources)
+
 From the root of this checkout, using the two pinned Python dependencies, run:
 
 ~~~sh
